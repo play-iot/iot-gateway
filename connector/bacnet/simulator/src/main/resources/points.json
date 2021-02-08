@@ -1,0 +1,1283 @@
+{
+  "UI1": {
+    "name": "UI1",
+    "type": "0-10dc",
+    "scale": "0:10",
+    "precision": 3,
+    "offset": 0,
+    "value": 0,
+    "pinValue": 0,
+    "kind": "Number",
+    "unit": "null",
+    "tags": [
+      "siteRef: @test site refd"
+    ],
+    "historySettings": {
+      "type": "periodic",
+      "schedule": "0 */15 * * * *",
+      "size": 672
+    },
+    "ditto": {
+      "tolerance": 0.2,
+      "enable": true
+    }
+  },
+  "UI2": {
+    "name": "UI2",
+    "type": "0-10dc",
+    "scale": "0:10",
+    "precision": 3,
+    "offset": 0,
+    "value": 0,
+    "pinValue": 0,
+    "kind": "Number",
+    "unit": "null",
+    "tags": [
+      "etst tafawfasfasfawfsdfgdfhgdfr",
+      "yaqayayay",
+      "asdfd"
+    ],
+    "historySettings": {
+      "type": "periodic",
+      "schedule": "0 */15 * * * *",
+      "size": 672
+    },
+    "ditto": {
+      "tolerance": 0.1,
+      "enable": false
+    }
+  },
+  "UI3": {
+    "name": "UI3",
+    "type": "0-10dc",
+    "scale": "0:10",
+    "precision": 3,
+    "offset": 0,
+    "value": 0,
+    "pinValue": 0,
+    "kind": "Number",
+    "unit": "null",
+    "tags": [
+      "aaa"
+    ],
+    "historySettings": {
+      "type": "periodic",
+      "schedule": "0 */15 * * * *",
+      "size": 672
+    },
+    "ditto": {
+      "tolerance": 0.1,
+      "enable": false
+    }
+  },
+  "UI4": {
+    "name": "UI4",
+    "type": "0-10dc",
+    "scale": "0:10",
+    "precision": 3,
+    "offset": 0,
+    "value": 0,
+    "pinValue": 0,
+    "kind": "Number",
+    "unit": "null",
+    "tags": [],
+    "historySettings": {
+      "type": "periodic",
+      "schedule": "0 */15 * * * *",
+      "size": 672
+    },
+    "ditto": {
+      "tolerance": 0.1,
+      "enable": false
+    }
+  },
+  "UI5": {
+    "name": "UI5",
+    "type": "0-10dc",
+    "scale": "0:10",
+    "precision": 3,
+    "offset": 0,
+    "value": 0,
+    "pinValue": 0,
+    "kind": "Number",
+    "unit": "null",
+    "tags": [
+      "aaa"
+    ],
+    "historySettings": {
+      "type": "periodic",
+      "schedule": "0 */15 * * * *",
+      "size": 672
+    },
+    "ditto": {
+      "tolerance": 0.1,
+      "enable": false
+    }
+  },
+  "DI1": {
+    "name": "DI1",
+    "value": 1,
+    "pinValue": 1,
+    "kind": "Bool",
+    "unit": "null",
+    "tags": [],
+    "historySettings": {
+      "type": "cov",
+      "size": 672,
+      "tolerance": 0
+    },
+    "ditto": {
+      "enable": false
+    }
+  },
+  "DI2": {
+    "name": "DI2",
+    "value": 1,
+    "pinValue": 1,
+    "kind": "Bool",
+    "unit": "null",
+    "tags": [],
+    "historySettings": {
+      "type": "cov",
+      "size": 672,
+      "tolerance": 0
+    },
+    "ditto": {
+      "enable": false
+    }
+  },
+  "DI3": {
+    "name": "DI3",
+    "value": 1,
+    "pinValue": 1,
+    "kind": "Bool",
+    "unit": "null",
+    "tags": [],
+    "historySettings": {
+      "type": "cov",
+      "size": 672,
+      "tolerance": 0
+    },
+    "ditto": {
+      "enable": false
+    }
+  },
+  "DI4": {
+    "name": "DI4",
+    "value": 1,
+    "pinValue": 1,
+    "kind": "Bool",
+    "unit": "null",
+    "tags": [],
+    "historySettings": {
+      "type": "cov",
+      "size": 672,
+      "tolerance": 0
+    },
+    "ditto": {
+      "enable": false
+    }
+  },
+  "DI5": {
+    "name": "DI5",
+    "value": 1,
+    "pinValue": 1,
+    "kind": "Bool",
+    "unit": "null",
+    "tags": [],
+    "historySettings": {
+      "type": "cov",
+      "size": 672,
+      "tolerance": 0
+    },
+    "ditto": {
+      "enable": false
+    }
+  },
+  "DI6": {
+    "name": "DI6",
+    "value": 1,
+    "pinValue": 1,
+    "kind": "Bool",
+    "unit": "null",
+    "tags": [],
+    "historySettings": {
+      "type": "cov",
+      "size": 672,
+      "tolerance": 0
+    },
+    "ditto": {
+      "enable": false
+    }
+  },
+  "DI7": {
+    "name": "DI7",
+    "value": 1,
+    "pinValue": 1,
+    "kind": "Bool",
+    "unit": "null",
+    "tags": [],
+    "historySettings": {
+      "type": "cov",
+      "size": 672,
+      "tolerance": 0
+    },
+    "ditto": {
+      "enable": false
+    }
+  },
+  "UO1": {
+    "name": "UO1",
+    "type": "0-10dc",
+    "precision": 3,
+    "offset": 0,
+    "value": 9,
+    "pinValue": 0.75,
+    "priority": 12,
+    "priorityArray": {
+      "1": "null",
+      "2": "null",
+      "3": "null",
+      "4": "null",
+      "5": "null",
+      "6": "null",
+      "7": "null",
+      "8": "null",
+      "9": "null",
+      "10": "null",
+      "11": "null",
+      "12": 9,
+      "13": "null",
+      "14": "null",
+      "15": "null",
+      "16": 2
+    },
+    "kind": "Number",
+    "unit": "null",
+    "tags": [],
+    "historySettings": {
+      "type": "cov",
+      "size": 672
+    },
+    "ditto": {
+      "enable": true
+    }
+  },
+  "UO2": {
+    "name": "UO2",
+    "type": "0-10dc",
+    "precision": 3,
+    "offset": 0,
+    "value": 10,
+    "pinValue": 0.8333333333333334,
+    "priority": 12,
+    "priorityArray": {
+      "1": "null",
+      "2": "null",
+      "3": "null",
+      "4": "null",
+      "5": "null",
+      "6": "null",
+      "7": "null",
+      "8": "null",
+      "9": "null",
+      "10": "null",
+      "11": "null",
+      "12": 10,
+      "13": "null",
+      "14": "null",
+      "15": "null",
+      "16": 2,
+      "null": 2
+    },
+    "kind": "Number",
+    "unit": "null",
+    "tags": [],
+    "historySettings": {
+      "type": "cov",
+      "size": 672
+    },
+    "ditto": {
+      "enable": true
+    }
+  },
+  "UO3": {
+    "name": "UO3",
+    "type": "0-10dc",
+    "precision": 3,
+    "offset": 0,
+    "value": 10,
+    "pinValue": 0.8333333333333334,
+    "priority": 12,
+    "priorityArray": {
+      "1": "null",
+      "2": "null",
+      "3": "null",
+      "4": "null",
+      "5": "null",
+      "6": "null",
+      "7": "null",
+      "8": "null",
+      "9": "null",
+      "10": "null",
+      "11": "null",
+      "12": 10,
+      "13": "null",
+      "14": "null",
+      "15": "null",
+      "16": "null"
+    },
+    "kind": "Number",
+    "unit": "null",
+    "tags": [],
+    "historySettings": {
+      "type": "cov",
+      "size": 672
+    },
+    "ditto": {
+      "enable": true
+    }
+  },
+  "UO4": {
+    "name": "UO4",
+    "type": "0-10dc",
+    "precision": 3,
+    "offset": 0,
+    "value": 10,
+    "pinValue": 0.8333333333333334,
+    "priority": 12,
+    "priorityArray": {
+      "1": "null",
+      "2": "null",
+      "3": "null",
+      "4": "null",
+      "5": "null",
+      "6": "null",
+      "7": "null",
+      "8": "null",
+      "9": "null",
+      "10": "null",
+      "11": "null",
+      "12": 10,
+      "13": "null",
+      "14": "null",
+      "15": "null",
+      "16": "null"
+    },
+    "kind": "Number",
+    "unit": "null",
+    "tags": [],
+    "historySettings": {
+      "type": "cov",
+      "size": 672
+    },
+    "ditto": {
+      "tolerance": 0.1,
+      "enable": false
+    }
+  },
+  "UO5": {
+    "name": "UO5",
+    "type": "0-10dc",
+    "precision": 3,
+    "offset": 0,
+    "value": 0,
+    "pinValue": 0,
+    "priority": "null",
+    "priorityArray": {
+      "1": "null",
+      "2": "null",
+      "3": "null",
+      "4": "null",
+      "5": "null",
+      "6": "null",
+      "7": "null",
+      "8": "null",
+      "9": "null",
+      "10": "null",
+      "11": "null",
+      "12": "null",
+      "13": "null",
+      "14": "null",
+      "15": "null",
+      "16": "null",
+      "null": 0
+    },
+    "kind": "Number",
+    "unit": "null",
+    "tags": [],
+    "historySettings": {
+      "type": "cov",
+      "size": 672,
+      "tolerance": 0
+    },
+    "ditto": {
+      "tolerance": 0.1,
+      "enable": false
+    }
+  },
+  "DO1": {
+    "name": "DO1",
+    "value": 0,
+    "pinValue": 0,
+    "priority": 16,
+    "priorityArray": {
+      "1": "null",
+      "2": "null",
+      "3": "null",
+      "4": "null",
+      "5": "null",
+      "6": "null",
+      "7": "null",
+      "8": "null",
+      "9": "null",
+      "10": "null",
+      "11": "null",
+      "12": "null",
+      "13": "null",
+      "14": "null",
+      "15": "null",
+      "16": 0
+    },
+    "kind": "Bool",
+    "unit": "null",
+    "tags": [],
+    "historySettings": {
+      "type": "cov",
+      "size": 672,
+      "tolerance": 0
+    },
+    "ditto": {
+      "enable": false
+    }
+  },
+  "DO2": {
+    "name": "DO2",
+    "value": 0,
+    "pinValue": 0,
+    "priority": "null",
+    "priorityArray": {
+      "1": "null",
+      "2": "null",
+      "3": "null",
+      "4": "null",
+      "5": "null",
+      "6": "null",
+      "7": "null",
+      "8": "null",
+      "9": "null",
+      "10": "null",
+      "11": "null",
+      "12": "null",
+      "13": "null",
+      "14": "null",
+      "15": "null",
+      "16": "null",
+      "null": 0
+    },
+    "kind": "Bool",
+    "unit": "null",
+    "tags": [],
+    "historySettings": {
+      "type": "cov",
+      "size": 672,
+      "tolerance": 0
+    },
+    "ditto": {
+      "enable": false
+    }
+  },
+  "DO3": {
+    "name": "DO3",
+    "value": 0,
+    "pinValue": 0,
+    "priority": "null",
+    "priorityArray": {
+      "1": "null",
+      "2": "null",
+      "3": "null",
+      "4": "null",
+      "5": "null",
+      "6": "null",
+      "7": "null",
+      "8": "null",
+      "9": "null",
+      "10": "null",
+      "11": "null",
+      "12": "null",
+      "13": "null",
+      "14": "null",
+      "15": "null",
+      "16": "null",
+      "null": 0
+    },
+    "kind": "Bool",
+    "unit": "null",
+    "tags": [],
+    "historySettings": {
+      "type": "cov",
+      "size": 672,
+      "tolerance": 0
+    },
+    "ditto": {
+      "enable": false
+    }
+  },
+  "R1": {
+    "name": "R1",
+    "value": 1,
+    "pinValue": 1,
+    "priority": 16,
+    "priorityArray": {
+      "1": "null",
+      "2": "null",
+      "3": "null",
+      "4": "null",
+      "5": "null",
+      "6": "null",
+      "7": "null",
+      "8": "null",
+      "9": "null",
+      "10": "null",
+      "11": "null",
+      "12": "null",
+      "13": "null",
+      "14": "null",
+      "15": "null",
+      "16": 1
+    },
+    "kind": "Bool",
+    "unit": "null",
+    "tags": [],
+    "historySettings": {
+      "type": "cov",
+      "size": 672
+    },
+    "ditto": {
+      "enable": false
+    }
+  },
+  "R2": {
+    "name": "R2",
+    "value": 0,
+    "pinValue": 0,
+    "priority": "null",
+    "priorityArray": {
+      "1": "null",
+      "2": "null",
+      "3": "null",
+      "4": "null",
+      "5": "null",
+      "6": "null",
+      "7": "null",
+      "8": "null",
+      "9": "null",
+      "10": "null",
+      "11": "null",
+      "12": "null",
+      "13": "null",
+      "14": "null",
+      "15": "null",
+      "16": "null",
+      "null": 0
+    },
+    "kind": "Bool",
+    "unit": "null",
+    "tags": [],
+    "historySettings": {
+      "type": "cov",
+      "size": 672,
+      "tolerance": 0
+    },
+    "ditto": {
+      "enable": false
+    }
+  },
+  "1234_TEMP": {
+    "kind": "Number",
+    "unit": "°C",
+    "historySettings": {
+      "type": "periodic",
+      "schedule": "0 */15 * * * *",
+      "size": 672
+    },
+    "name": "q_TEMP",
+    "tags": [
+      "deviceRef: @1234",
+      "displayName: @q",
+      "locationRef: @q"
+    ],
+    "precision": 3,
+    "offset": 0,
+    "value": 0,
+    "priorityArray": {
+      "1": "null",
+      "2": "null",
+      "3": "null",
+      "4": "null",
+      "5": "null",
+      "6": "null",
+      "7": "null",
+      "8": "null",
+      "9": "null",
+      "10": "null",
+      "11": "null",
+      "12": "null",
+      "13": "null",
+      "14": "null",
+      "15": "null",
+      "16": "null"
+    },
+    "ditto": {
+      "enable": false
+    }
+  },
+  "1234_HUMIDITY": {
+    "kind": "Number",
+    "unit": "%",
+    "historySettings": {
+      "type": "periodic",
+      "schedule": "0 */15 * * * *",
+      "size": 672
+    },
+    "name": "q_HUMIDITY",
+    "tags": [
+      "deviceRef: @1234",
+      "displayName: @q",
+      "locationRef: @q"
+    ],
+    "precision": 3,
+    "offset": 0,
+    "value": 0,
+    "priorityArray": {
+      "1": "null",
+      "2": "null",
+      "3": "null",
+      "4": "null",
+      "5": "null",
+      "6": "null",
+      "7": "null",
+      "8": "null",
+      "9": "null",
+      "10": "null",
+      "11": "null",
+      "12": "null",
+      "13": "null",
+      "14": "null",
+      "15": "null",
+      "16": "null"
+    },
+    "ditto": {
+      "enable": false
+    }
+  },
+  "1234_PRESSURE": {
+    "kind": "Number",
+    "unit": "hPa",
+    "historySettings": {
+      "type": "periodic",
+      "schedule": "0 */15 * * * *",
+      "size": 672
+    },
+    "name": "q_PRESSURE",
+    "tags": [
+      "deviceRef: @1234",
+      "displayName: @q",
+      "locationRef: @q"
+    ],
+    "precision": 3,
+    "offset": 0,
+    "value": 0,
+    "priorityArray": {
+      "1": "null",
+      "2": "null",
+      "3": "null",
+      "4": "null",
+      "5": "null",
+      "6": "null",
+      "7": "null",
+      "8": "null",
+      "9": "null",
+      "10": "null",
+      "11": "null",
+      "12": "null",
+      "13": "null",
+      "14": "null",
+      "15": "null",
+      "16": "null"
+    },
+    "ditto": {
+      "enable": false
+    }
+  },
+  "1234_VOLTAGE": {
+    "kind": "Number",
+    "unit": "V",
+    "historySettings": {
+      "type": "periodic",
+      "schedule": "0 */15 * * * *",
+      "size": 672
+    },
+    "name": "q_VOLTAGE",
+    "tags": [
+      "deviceRef: @1234",
+      "displayName: @q",
+      "locationRef: @q"
+    ],
+    "precision": 3,
+    "offset": 0,
+    "value": 0,
+    "priorityArray": {
+      "1": "null",
+      "2": "null",
+      "3": "null",
+      "4": "null",
+      "5": "null",
+      "6": "null",
+      "7": "null",
+      "8": "null",
+      "9": "null",
+      "10": "null",
+      "11": "null",
+      "12": "null",
+      "13": "null",
+      "14": "null",
+      "15": "null",
+      "16": "null"
+    },
+    "ditto": {
+      "enable": false
+    }
+  },
+  "1234_RSSI": {
+    "kind": "Number",
+    "unit": "dBm",
+    "historySettings": {
+      "type": "periodic",
+      "schedule": "0 */15 * * * *",
+      "size": 672
+    },
+    "name": "q_RSSI",
+    "tags": [
+      "deviceRef: @1234",
+      "displayName: @q",
+      "locationRef: @q"
+    ],
+    "precision": 3,
+    "offset": 0,
+    "value": 0,
+    "priorityArray": {
+      "1": "null",
+      "2": "null",
+      "3": "null",
+      "4": "null",
+      "5": "null",
+      "6": "null",
+      "7": "null",
+      "8": "null",
+      "9": "null",
+      "10": "null",
+      "11": "null",
+      "12": "null",
+      "13": "null",
+      "14": "null",
+      "15": "null",
+      "16": "null"
+    },
+    "ditto": {
+      "enable": false
+    }
+  },
+  "UI6": {
+    "historySettings": {
+      "type": "periodic",
+      "schedule": "0 */15 * * * *",
+      "size": 672
+    },
+    "name": "UI6",
+    "type": "0-10dc",
+    "scale": "0:10",
+    "precision": 3,
+    "offset": 0,
+    "pinValue": 0,
+    "kind": "Number",
+    "unit": "null",
+    "tags": [],
+    "ditto": {
+      "tolerance": 0.7,
+      "enable": true
+    },
+    "value": 0
+  },
+  "UI7": {
+    "historySettings": {
+      "type": "periodic",
+      "schedule": "0 */15 * * * *",
+      "size": 672
+    },
+    "name": "UI7",
+    "type": "0-10dc",
+    "scale": "0:10",
+    "precision": 3,
+    "offset": 0,
+    "pinValue": 0,
+    "kind": "Number",
+    "unit": "null",
+    "tags": [],
+    "ditto": {
+      "tolerance": 0.8,
+      "enable": true
+    },
+    "value": 0
+  },
+  "4AB28169_TEMP": {
+    "kind": "Number",
+    "unit": "°C",
+    "historySettings": {
+      "type": "periodic",
+      "schedule": "0 */15 * * * *",
+      "size": 672
+    },
+    "name": "test_TEMP",
+    "tags": [
+      "deviceRef: @4AB28169",
+      "displayName: @test",
+      "locationRef: @test"
+    ],
+    "precision": 3,
+    "offset": 0,
+    "value": 23.2,
+    "priorityArray": {
+      "1": "null",
+      "2": "null",
+      "3": "null",
+      "4": "null",
+      "5": "null",
+      "6": "null",
+      "7": "null",
+      "8": "null",
+      "9": "null",
+      "10": "null",
+      "11": "null",
+      "12": "null",
+      "13": "null",
+      "14": "null",
+      "15": "null",
+      "16": "null"
+    },
+    "ditto": {
+      "enable": false
+    }
+  },
+  "4AB28169_HUMIDITY": {
+    "kind": "Number",
+    "unit": "%",
+    "historySettings": {
+      "type": "periodic",
+      "schedule": "0 */15 * * * *",
+      "size": 672
+    },
+    "name": "test_HUMIDITY",
+    "tags": [
+      "deviceRef: @4AB28169",
+      "displayName: @test",
+      "locationRef: @test"
+    ],
+    "precision": 3,
+    "offset": 0,
+    "value": 0,
+    "priorityArray": {
+      "1": "null",
+      "2": "null",
+      "3": "null",
+      "4": "null",
+      "5": "null",
+      "6": "null",
+      "7": "null",
+      "8": "null",
+      "9": "null",
+      "10": "null",
+      "11": "null",
+      "12": "null",
+      "13": "null",
+      "14": "null",
+      "15": "null",
+      "16": "null"
+    },
+    "ditto": {
+      "enable": false
+    }
+  },
+  "4AB28169_PRESSURE": {
+    "kind": "Number",
+    "unit": "hPa",
+    "historySettings": {
+      "type": "periodic",
+      "schedule": "0 */15 * * * *",
+      "size": 672
+    },
+    "name": "test_PRESSURE",
+    "tags": [
+      "deviceRef: @4AB28169",
+      "displayName: @test",
+      "locationRef: @test"
+    ],
+    "precision": 3,
+    "offset": 0,
+    "value": 1002,
+    "priorityArray": {
+      "1": "null",
+      "2": "null",
+      "3": "null",
+      "4": "null",
+      "5": "null",
+      "6": "null",
+      "7": "null",
+      "8": "null",
+      "9": "null",
+      "10": "null",
+      "11": "null",
+      "12": "null",
+      "13": "null",
+      "14": "null",
+      "15": "null",
+      "16": "null"
+    },
+    "ditto": {
+      "enable": false
+    }
+  },
+  "4AB28169_VOLTAGE": {
+    "kind": "Number",
+    "unit": "V",
+    "historySettings": {
+      "type": "periodic",
+      "schedule": "0 */15 * * * *",
+      "size": 672
+    },
+    "name": "test_VOLTAGE",
+    "tags": [
+      "deviceRef: @4AB28169",
+      "displayName: @test",
+      "locationRef: @test"
+    ],
+    "precision": 3,
+    "offset": 0,
+    "value": 4.75,
+    "priorityArray": {
+      "1": "null",
+      "2": "null",
+      "3": "null",
+      "4": "null",
+      "5": "null",
+      "6": "null",
+      "7": "null",
+      "8": "null",
+      "9": "null",
+      "10": "null",
+      "11": "null",
+      "12": "null",
+      "13": "null",
+      "14": "null",
+      "15": "null",
+      "16": "null"
+    },
+    "ditto": {
+      "enable": false
+    }
+  },
+  "4AB28169_MOVEMENT": {
+    "kind": "Bool",
+    "unit": "null",
+    "name": "test_MOVEMENT",
+    "tags": [
+      "deviceRef: @4AB28169",
+      "displayName: @test",
+      "locationRef: @test"
+    ],
+    "precision": 3,
+    "offset": 0,
+    "value": 1,
+    "priorityArray": {
+      "1": "null",
+      "2": "null",
+      "3": "null",
+      "4": "null",
+      "5": "null",
+      "6": "null",
+      "7": "null",
+      "8": "null",
+      "9": "null",
+      "10": "null",
+      "11": "null",
+      "12": "null",
+      "13": "null",
+      "14": "null",
+      "15": "null",
+      "16": "null"
+    },
+    "historySettings": {
+      "type": "cov",
+      "size": 672,
+      "tolerance": 0
+    },
+    "ditto": {
+      "enable": false
+    }
+  },
+  "4AB28169_LUX": {
+    "kind": "Number",
+    "unit": "lx",
+    "historySettings": {
+      "type": "periodic",
+      "schedule": "0 */15 * * * *",
+      "size": 672
+    },
+    "name": "test_LUX",
+    "tags": [
+      "deviceRef: @4AB28169",
+      "displayName: @test",
+      "locationRef: @test"
+    ],
+    "precision": 3,
+    "offset": 0,
+    "value": 105,
+    "priorityArray": {
+      "1": "null",
+      "2": "null",
+      "3": "null",
+      "4": "null",
+      "5": "null",
+      "6": "null",
+      "7": "null",
+      "8": "null",
+      "9": "null",
+      "10": "null",
+      "11": "null",
+      "12": "null",
+      "13": "null",
+      "14": "null",
+      "15": "null",
+      "16": "null"
+    },
+    "ditto": {
+      "enable": false
+    }
+  },
+  "4AB28169_RSSI": {
+    "kind": "Number",
+    "unit": "dBm",
+    "historySettings": {
+      "type": "periodic",
+      "schedule": "0 */15 * * * *",
+      "size": 672
+    },
+    "name": "test_RSSI",
+    "tags": [
+      "deviceRef: @4AB28169",
+      "displayName: @test",
+      "locationRef: @test"
+    ],
+    "precision": 3,
+    "offset": 0,
+    "value": -88,
+    "priorityArray": {
+      "1": "null",
+      "2": "null",
+      "3": "null",
+      "4": "null",
+      "5": "null",
+      "6": "null",
+      "7": "null",
+      "8": "null",
+      "9": "null",
+      "10": "null",
+      "11": "null",
+      "12": "null",
+      "13": "null",
+      "14": "null",
+      "15": "null",
+      "16": "null"
+    },
+    "ditto": {
+      "enable": false
+    }
+  },
+  "test": {
+    "historySettings": {
+      "type": "cov",
+      "size": 672
+    },
+    "name": "test",
+    "precision": 3,
+    "offset": 0,
+    "value": 0,
+    "priorityArray": {
+      "1": "null",
+      "2": "null",
+      "3": "null",
+      "4": "null",
+      "5": "null",
+      "6": "null",
+      "7": "null",
+      "8": "null",
+      "9": "null",
+      "10": "null",
+      "11": "null",
+      "12": "null",
+      "13": "null",
+      "14": "null",
+      "15": "null",
+      "16": "null"
+    },
+    "kind": "Number",
+    "unit": "null",
+    "tags": [
+      "ahuRef: @thing",
+      "hgjghj"
+    ],
+    "ditto": {
+      "enable": false
+    }
+  },
+  "yeee": {
+    "historySettings": {
+      "type": "cov",
+      "size": 672,
+      "tolerance": 0
+    },
+    "name": "yeee",
+    "precision": 3,
+    "offset": 0,
+    "value": 0,
+    "priorityArray": {
+      "1": "null",
+      "2": "null",
+      "3": "null",
+      "4": "null",
+      "5": "null",
+      "6": "null",
+      "7": "null",
+      "8": "null",
+      "9": "null",
+      "10": "null",
+      "11": "null",
+      "12": "null",
+      "13": "null",
+      "14": "null",
+      "15": "null",
+      "16": "null"
+    },
+    "kind": "Number",
+    "unit": "null",
+    "tags": [],
+    "ditto": {
+      "enable": false
+    }
+  },
+  "sedf": {
+    "historySettings": {
+      "type": "cov",
+      "size": 672,
+      "tolerance": 0
+    },
+    "name": "sedf",
+    "precision": 3,
+    "offset": 0,
+    "value": 0,
+    "priorityArray": {
+      "1": "null",
+      "2": "null",
+      "3": "null",
+      "4": "null",
+      "5": "null",
+      "6": "null",
+      "7": "null",
+      "8": "null",
+      "9": "null",
+      "10": "null",
+      "11": "null",
+      "12": "null",
+      "13": "null",
+      "14": "null",
+      "15": "null",
+      "16": "null"
+    },
+    "kind": "Number",
+    "unit": "null",
+    "tags": [],
+    "ditto": {
+      "enable": false
+    }
+  },
+  "sedfbvh": {
+    "historySettings": {
+      "type": "cov",
+      "size": 672,
+      "tolerance": 0
+    },
+    "name": "sedfbvh",
+    "precision": 3,
+    "offset": 0,
+    "value": 0,
+    "priorityArray": {
+      "1": "null",
+      "2": "null",
+      "3": "null",
+      "4": "null",
+      "5": "null",
+      "6": "null",
+      "7": "null",
+      "8": "null",
+      "9": "null",
+      "10": "null",
+      "11": "null",
+      "12": "null",
+      "13": "null",
+      "14": "null",
+      "15": "null",
+      "16": "null"
+    },
+    "kind": "Number",
+    "unit": "null",
+    "tags": [],
+    "ditto": {
+      "enable": false
+    }
+  },
+  "skrrr": {
+    "historySettings": {
+      "type": "cov",
+      "size": 672,
+      "tolerance": 0
+    },
+    "name": "skrrr",
+    "precision": 3,
+    "offset": 0,
+    "value": 0,
+    "priorityArray": {
+      "1": "null",
+      "2": "null",
+      "3": "null",
+      "4": "null",
+      "5": "null",
+      "6": "null",
+      "7": "null",
+      "8": "null",
+      "9": "null",
+      "10": "null",
+      "11": "null",
+      "12": "null",
+      "13": "null",
+      "14": "null",
+      "15": "null",
+      "16": "null"
+    },
+    "kind": "Number",
+    "unit": "null",
+    "tags": [],
+    "ditto": {
+      "enable": false
+    }
+  }
+}

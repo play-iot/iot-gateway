@@ -1,0 +1,24 @@
+{
+  "__system__": {
+    "__eventBus__": {
+      "clientAuth": "NONE",
+      "ssl": false,
+      "clustered": false
+    },
+    "__cluster__": {
+      "active": false
+    }
+  },
+  "__app__": {
+    "__bacnet__": {
+      "deviceName": "QWEIOMaster",
+      "deviceId": 111,
+      "__networks__": {
+        "ip1": {
+          "type": "IP",
+          "networkInterface": "br-dbe3c69dbbb3"
+        }
+      }
+    }
+  }
+}

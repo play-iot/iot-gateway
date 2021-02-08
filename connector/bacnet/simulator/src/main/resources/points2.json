@@ -1,0 +1,322 @@
+{
+  "UI0": {
+    "name": "UI0",
+    "value": 20,
+    "kind": "Number",
+    "historySettings": {
+      "type": "periodic"
+    }
+  },
+  "UI1": {
+    "name": "UI1",
+    "value": 21,
+    "kind": "Number",
+    "historySettings": {
+      "type": "periodic"
+    }
+  },
+  "UI2": {
+    "name": "UI2",
+    "value": 22,
+    "kind": "Number",
+    "historySettings": {
+      "type": "periodic"
+    }
+  },
+  "UI3": {
+    "name": "UI3",
+    "value": 23,
+    "kind": "Number",
+    "historySettings": {
+      "type": "periodic"
+    }
+  },
+  "UI4": {
+    "name": "UI4",
+    "value": 24,
+    "kind": "Number",
+    "historySettings": {
+      "type": "periodic"
+    }
+  },
+  "UI5": {
+    "name": "UI5",
+    "value": 25,
+    "kind": "Number",
+    "historySettings": {
+      "type": "periodic"
+    }
+  },
+  "UI6": {
+    "name": "UI6",
+    "value": 26,
+    "kind": "Number",
+    "historySettings": {
+      "type": "periodic"
+    }
+  },
+  "UI7": {
+    "name": "UI7",
+    "value": 27,
+    "kind": "Number",
+    "historySettings": {
+      "type": "periodic"
+    }
+  },
+  "UI8": {
+    "name": "UI8",
+    "value": 28,
+    "kind": "Number",
+    "historySettings": {
+      "type": "periodic"
+    }
+  },
+  "UI9": {
+    "name": "UI9",
+    "value": 29,
+    "kind": "Number",
+    "historySettings": {
+      "type": "periodic"
+    }
+  },
+  "UO0": {
+    "name": "UO0",
+    "value": 20,
+    "kind": "Number",
+    "historySettings": {
+      "type": "periodic"
+    }
+  },
+  "UO1": {
+    "name": "UO1",
+    "value": 21,
+    "kind": "Number",
+    "historySettings": {
+      "type": "periodic"
+    }
+  },
+  "UO2": {
+    "name": "UO2",
+    "value": 22,
+    "kind": "Number",
+    "historySettings": {
+      "type": "periodic"
+    }
+  },
+  "UO3": {
+    "name": "UO3",
+    "value": 23,
+    "kind": "Number",
+    "historySettings": {
+      "type": "periodic"
+    }
+  },
+  "UO4": {
+    "name": "UO4",
+    "value": 24,
+    "kind": "Number",
+    "historySettings": {
+      "type": "periodic"
+    }
+  },
+  "UO5": {
+    "name": "UO5",
+    "value": 25,
+    "kind": "Number",
+    "historySettings": {
+      "type": "periodic"
+    }
+  },
+  "UO6": {
+    "name": "UO6",
+    "value": 26,
+    "kind": "Number",
+    "historySettings": {
+      "type": "periodic"
+    }
+  },
+  "UO7": {
+    "name": "UO7",
+    "value": 27,
+    "kind": "Number",
+    "historySettings": {
+      "type": "periodic"
+    }
+  },
+  "UO8": {
+    "name": "UO8",
+    "value": 28,
+    "kind": "Number",
+    "historySettings": {
+      "type": "periodic"
+    }
+  },
+  "UO9": {
+    "name": "UO9",
+    "value": 29,
+    "kind": "Number",
+    "historySettings": {
+      "type": "periodic"
+    }
+  },
+  "DI0": {
+    "name": "DI0",
+    "value": 20,
+    "kind": "Number",
+    "historySettings": {
+      "type": "periodic"
+    }
+  },
+  "DI1": {
+    "name": "DI1",
+    "value": 21,
+    "kind": "Number",
+    "historySettings": {
+      "type": "periodic"
+    }
+  },
+  "DI2": {
+    "name": "DI2",
+    "value": 22,
+    "kind": "Number",
+    "historySettings": {
+      "type": "periodic"
+    }
+  },
+  "DI3": {
+    "name": "DI3",
+    "value": 23,
+    "kind": "Number",
+    "historySettings": {
+      "type": "periodic"
+    }
+  },
+  "DI4": {
+    "name": "DI4",
+    "value": 24,
+    "kind": "Number",
+    "historySettings": {
+      "type": "periodic"
+    }
+  },
+  "DI5": {
+    "name": "DI5",
+    "value": 25,
+    "kind": "Number",
+    "historySettings": {
+      "type": "periodic"
+    }
+  },
+  "DI6": {
+    "name": "DI6",
+    "value": 26,
+    "kind": "Number",
+    "historySettings": {
+      "type": "periodic"
+    }
+  },
+  "DI7": {
+    "name": "DI7",
+    "value": 27,
+    "kind": "Number",
+    "historySettings": {
+      "type": "periodic"
+    }
+  },
+  "DI8": {
+    "name": "DI8",
+    "value": 28,
+    "kind": "Number",
+    "historySettings": {
+      "type": "periodic"
+    }
+  },
+  "DI9": {
+    "name": "DI9",
+    "value": 29,
+    "kind": "Number",
+    "historySettings": {
+      "type": "periodic"
+    }
+  },
+  "DO0": {
+    "name": "DO0",
+    "value": 20,
+    "kind": "Number",
+    "historySettings": {
+      "type": "periodic"
+    }
+  },
+  "DO1": {
+    "name": "DO1",
+    "value": 21,
+    "kind": "Number",
+    "historySettings": {
+      "type": "periodic"
+    }
+  },
+  "DO2": {
+    "name": "DO2",
+    "value": 22,
+    "kind": "Number",
+    "historySettings": {
+      "type": "periodic"
+    }
+  },
+  "DO3": {
+    "name": "DO3",
+    "value": 23,
+    "kind": "Number",
+    "historySettings": {
+      "type": "periodic"
+    }
+  },
+  "DO4": {
+    "name": "DO4",
+    "value": 24,
+    "kind": "Number",
+    "historySettings": {
+      "type": "periodic"
+    }
+  },
+  "DO5": {
+    "name": "DO5",
+    "value": 25,
+    "kind": "Number",
+    "historySettings": {
+      "type": "periodic"
+    }
+  },
+  "DO6": {
+    "name": "DO6",
+    "value": 26,
+    "kind": "Number",
+    "historySettings": {
+      "type": "periodic"
+    }
+  },
+  "DO7": {
+    "name": "DO7",
+    "value": 27,
+    "kind": "Number",
+    "historySettings": {
+      "type": "periodic"
+    }
+  },
+  "DO8": {
+    "name": "DO8",
+    "value": 28,
+    "kind": "Number",
+    "historySettings": {
+      "type": "periodic"
+    }
+  },
+  "DO9": {
+    "name": "DO9",
+    "value": 29,
+    "kind": "Number",
+    "historySettings": {
+      "type": "periodic"
+    }
+  }
+}

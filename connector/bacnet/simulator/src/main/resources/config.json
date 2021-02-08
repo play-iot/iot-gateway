@@ -1,0 +1,37 @@
+{
+  "__system__": {
+    "__eventBus__": {
+      "clientAuth": "NONE",
+      "ssl": false,
+      "clustered": false
+    },
+    "__cluster__": {
+      "active": false
+    }
+  },
+  "__app__": {
+    "__micro__": {
+      "__gateway__": {
+        "enabled": false
+      },
+      "__serviceDiscovery__": {
+        "enabled": false
+      },
+      "__localServiceDiscovery__": {
+        "enabled": true
+      },
+      "__circuitBreaker__": {
+        "enabled": false
+      }
+    },
+    "__bacnet__": {
+      "deviceName": "QWEIOSimulator",
+      "deviceId": 222,
+      "__networks__": {
+        "ip1": {
+          "type": "IP"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "__app__": {
+    "__bacnet__": {
+      "deviceName": "QWEIOEdge28TEST",
+      "deviceId": 654321,
+      "__networks__": {
+        "ip1": {
+          "name": "ip1",
+          "subnet": "testSubnet1",
+          "networkInterface": "net1",
+          "port": 47808
+        },
+        "ip2": {
+          "subnet": "testSubnet2",
+          "networkInterface": "net2",
+          "port": 47808
+        }
+      }
+    }
+  }
+}
