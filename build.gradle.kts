@@ -40,7 +40,7 @@ subprojects {
     project.version = "$version$semanticVersion"
     project.ext.set("baseName", ProjectUtils.computeBaseName(project))
     project.ext.set("title", findProperty("title") ?: project.ext.get("baseName"))
-    project.ext.set("description", findProperty("description") ?: "A Vertx framework for microservice: ${project.name}")
+    project.ext.set("description", findProperty("description") ?: "An IoT Gateway on Edge Compute: ${project.name}")
 
     afterEvaluate {
         if (setOf("service").contains(project.name)) {
@@ -130,11 +130,11 @@ subprojects {
                 pom {
                     name.set(project.ext.get("title") as String)
                     description.set(project.ext.get("description") as String)
-                    url.set("https://github.com/zero88/qwe")
+                    url.set("https://github.com/zero88/qwe-iot-gateway")
                     licenses {
                         license {
                             name.set("The Apache License, Version 2.0")
-                            url.set("https://github.com/zero88/qwe/blob/master/LICENSE")
+                            url.set("https://github.com/zero88/qwe-iot-gateway/blob/master/LICENSE")
                         }
                     }
                     developers {
@@ -144,9 +144,9 @@ subprojects {
                         }
                     }
                     scm {
-                        connection.set("scm:git:git://git@github.com:zero88/qwe.git")
-                        developerConnection.set("scm:git:ssh://git@github.com:zero88/qwe.git")
-                        url.set("https://github.com/zero88/qwe")
+                        connection.set("scm:git:git://git@github.com:zero88/qwe-iot-gateway.git")
+                        developerConnection.set("scm:git:ssh://git@github.com:zero88/qwe-iot-gateway.git")
+                        url.set("https://github.com/zero88/qwe-iot-gateway")
                     }
                 }
             }
