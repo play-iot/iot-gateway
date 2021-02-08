@@ -1,0 +1,11 @@
+{
+  "__bacnet__": {
+    "vendorId": 111,
+    "vendorName": "xyz",
+    "deviceId": 123,
+    "deviceName": "wtf",
+    "modelName": "Haha",
+    "maxDiscoverTimeout": 10,
+    "maxDiscoverTimeoutUnit": "SECONDS"
+  }
+}
