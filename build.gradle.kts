@@ -5,6 +5,7 @@ import java.util.jar.Attributes.Name
 
 plugins {
     `java-library`
+    `java-library-distribution`
     `maven-publish`
     jacoco
     signing
@@ -32,11 +33,13 @@ allprojects {
 
 subprojects {
     apply(plugin = "java-library")
+    apply(plugin = "java-library-distribution")
     apply(plugin = "eclipse")
     apply(plugin = "idea")
     apply(plugin = "jacoco")
     apply(plugin = "signing")
     apply(plugin = "maven-publish")
+    apply(from = "$rootDir/buildSrc/generated.gradle")
     project.version = "$version$semanticVersion"
     project.ext.set("baseName", ProjectUtils.computeBaseName(project))
     project.ext.set("title", findProperty("title") ?: project.ext.get("baseName"))
@@ -109,6 +112,24 @@ subprojects {
         withType<Sign>().configureEach {
             onlyIf { project.hasProperty("release") }
         }
+        distZip {
+            onlyIf { project.ext.has("standalone") && "true" == project.ext.get("standalone") }
+            into("${project.ext.get("baseName")}-${project.version}/conf") {
+                from(project.buildDir.resolve("generated/conf"))
+            }
+        }
+        distTar {
+            onlyIf { project.ext.has("standalone") && "true" == project.ext.get("standalone") }
+            into("${project.ext.get("baseName")}-${project.version}/conf") {
+                from(project.buildDir.resolve("generated/conf"))
+            }
+        }
+    }
+
+    distributions {
+        main {
+            distributionBaseName.set("${project.ext.get("baseName")}")
+        }
     }
 
     publishing {
@@ -173,6 +194,7 @@ subprojects {
         useGpgCmd()
         sign(publishing.publications["maven"])
     }
+//    apply("$rootDir/buildSrc/generated.gradle")
 }
 
 task<JacocoReport>("jacocoRootReport") {
