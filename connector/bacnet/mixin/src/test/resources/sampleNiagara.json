@@ -1,0 +1,107 @@
+{
+  "protocol-services-supported": {
+    "get-enrollment-summary": true,
+    "vt-open": false,
+    "atomic-read-file": true,
+    "utc-time-synchronization": true,
+    "get-event-information": true,
+    "write-group": false,
+    "get-alarm-summary": true,
+    "read-property-multiple": true,
+    "unconfirmed-cov-notification-multiple": false,
+    "remove-list-element": true,
+    "unconfirmed-cov-notification": true,
+    "life-safety-operation": false,
+    "create-object": false,
+    "confirmed-event-notification": true,
+    "confirmed-cov-notification": true,
+    "unconfirmed-text-message": false,
+    "unconfirmed-private-transfer": true,
+    "i-have": true,
+    "i-am": true,
+    "vt-data": false,
+    "who-is": true,
+    "who-has": true,
+    "vt-close": false,
+    "reinitialize-device": true,
+    "confirmed-text-message": false,
+    "add-list-element": true,
+    "subscribe-cov": true,
+    "subscribe-cov-property-multiple": false,
+    "delete-object": false,
+    "confirmed-private-transfer": true,
+    "read-property": true,
+    "subscribe-cov-property": true,
+    "read-range": true,
+    "atomic-write-file": true,
+    "time-synchronization": true,
+    "device-communication-control": true,
+    "write-property-multiple": true,
+    "unconfirmed-event-notification": true,
+    "write-property": true,
+    "confirmed-cov-notification-multiple": false,
+    "acknowledge-alarm": true
+  },
+  "protocol-version": 1,
+  "model-name": "Niagara4 Station",
+  "number-of-apdu-retries": 3,
+  "object-identifier": "device:432324",
+  "segmentation-supported": "segmented-both",
+  "protocol-revision": 14,
+  "apdu-timeout": 3000,
+  "object-list": [
+    "device:432324"
+  ],
+  "application-software-version": "Tridium 4.4.93.40.6",
+  "firmware-revision": "4.4.93.40.6",
+  "object-name": "Ciper_50_432324",
+  "object-type": "device",
+  "system-status": "operational",
+  "vendor-identifier": 36,
+  "vendor-name": "Tridium",
+  "database-revision": 652,
+  "device-address-binding": [
+    {
+      "device-object-identifier": "device:0",
+      "device-address": {
+        "hostAddress": "192.168.15.55:47808",
+        "networkNumber": 0,
+        "macAddress": "C0-A8-0F-37-BA-C0",
+        "type": "IP"
+      }
+    },
+    {
+      "device-object-identifier": "device:1315",
+      "device-address": {
+        "hostAddress": "15",
+        "networkNumber": 3,
+        "macAddress": "0F",
+        "type": "MSTP"
+      }
+    },
+    {
+      "device-object-identifier": "device:60000",
+      "device-address": {
+        "hostAddress": "0.25.151.1:800",
+        "networkNumber": 2,
+        "macAddress": "00-19-97-01-03-20",
+        "type": "IP"
+      }
+    },
+    {
+      "device-object-identifier": "device:3321",
+      "device-address": {
+        "hostAddress": "7",
+        "networkNumber": 3,
+        "macAddress": "07",
+        "type": "MSTP"
+      }
+    }
+  ],
+  "max-apdu-length-accepted": 1476,
+  "address": {
+    "hostAddress": "192.168.15.125:47808",
+    "networkNumber": 0,
+    "macAddress": "C0-A8-0F-7D-BA-C0"
+  }
+}
