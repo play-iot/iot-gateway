@@ -26,9 +26,9 @@ public class BACnetPointsTest {
         pvs.add(oid, PropertyIdentifier.objectType, null, ObjectType.analogOutput);
         final PropertyValuesMixin pvm = PropertyValuesMixin.create(oid, pvs, false);
         final BACnetPointEntity pt = BACnetPointEntity.from(networkId, deviceId, pvm);
-        JsonHelper.assertJson(new JsonObject("{\"analog-output:1\":{\"key\":\"analog-output:1\"," +
-                                             "\"networkId\":\"ipv4-docker\",\"deviceId\":\"device:111\"," +
-                                             "\"type\":\"ANALOG_OUTPUT\"}}"), new BACnetPoints().add(pt).toJson());
+        JsonHelper.assertJson(new JsonObject("{\"analog-output:1\":{\"_key\":\"analog-output:1\"," +
+                                             "\"_networkId\":\"ipv4-docker\",\"_deviceId\":\"device:111\"," +
+                                             "\"_type\":\"ANALOG_OUTPUT\"}}"), new BACnetPoints().add(pt).toJson());
     }
 
 }

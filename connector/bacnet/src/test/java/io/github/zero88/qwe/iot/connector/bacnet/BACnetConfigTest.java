@@ -21,7 +21,7 @@ public class BACnetConfigTest {
                                              "\"maxDiscoverTimeout\":10,\"maxDiscoverTimeoutUnit\":\"SECONDS\"," +
                                              "\"completeDiscoverAddress\":\"io.github.zero88.qwe.iot.connector.bacnet" +
                                              ".discover.complete\",\"readinessAddress\":\"io.github.zero88.qwe.iot.connector" +
-                                             ".bacnet.readiness\",\"enableSubscriber\":false}"), config.toJson(),
+                                             ".bacnet.readiness\"}"), config.toJson(),
                               JsonHelper.ignore("deviceId"));
     }
 

@@ -36,6 +36,7 @@ public class DiscoveryResponseTest {
         final PropertyValues pvs = new PropertyValues();
         pvs.add(oid, PropertyIdentifier.presentValue, null, new Double(10.0));
         pvs.add(oid, PropertyIdentifier.deviceType, null, new CharacterString("abc"));
+        pvs.add(oid, PropertyIdentifier.objectName, null, new CharacterString("haha"));
         final PropertyValuesMixin pvm = PropertyValuesMixin.create(oid, pvs, false);
         final Address address = new Address(new byte[] {(byte) 206, (byte) 210, 100, (byte) 134});
         final BACnetDeviceEntity dt = BACnetDeviceEntity.from(firstActiveIp.identifier(),
