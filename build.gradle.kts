@@ -43,7 +43,7 @@ subprojects {
     project.ext.set("description", findProperty("description") ?: "A Vertx framework for microservice: ${project.name}")
 
     afterEvaluate {
-        if (setOf("iot", "connectors", "bacnet").contains(project.name)) {
+        if (setOf("service").contains(project.name)) {
             project.tasks.forEach { it.enabled = false }
         } else {
             println("- Project Name:     ${project.ext.get("baseName")}")

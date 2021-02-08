@@ -8,12 +8,8 @@
  */
 
 rootProject.name = "qwe-iot"
+
 include(":data", ":connector")
 
-include(
-    "connectors:bacnet:mixin",
-    "connectors:bacnet:base",
-    "connectors:bacnet:simulator",
-    "connectors:bacnet:service",
-    "connectors:bacnet:server"
-)
+include(":connector:bacnet", ":connector:bacnet:mixin", ":connector:bacnet:simulator")
+include("service:bacnet-api", "service:bacnet-server")
