@@ -1,0 +1,16 @@
+{
+  "__app__": {
+    "__micro__": {
+      "__gateway__": {
+        "enabled": true,
+        "indexAddress": "mock.gateway.api"
+      },
+      "__serviceDiscovery__": {
+        "enabled": false
+      },
+      "__localServiceDiscovery__": {
+        "enabled": true
+      }
+    }
+  }
+}

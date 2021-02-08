@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>QWE | BACnet Web Socket</title>
+    <script crossorigin="anonymous"
+            integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://unpkg.io/sockjs-client@1.5.0/dist/sockjs.min.js"></script>
+    <script src='https://unpkg.io/@vertx/eventbus-bridge-client.js@1.0.0-1/vertx-eventbus.js'></script>
+</head>
+<style>
+    .news {
+        font-size: 20pt;
+    }
+
+    #status {
+        font-size: 10pt;
+    }
+
+
+</style>
+
+<body>
+
+<div class="news">Latest data:</div>
+<br/>
+
+<div class="news" id="status"></div>
+
+<script type="text/javascript">
+    let eb = new EventBus('http://localhost:8888/ws/cov');
+    eb.onopen = function () {
+        eb.registerHandler('bacnet.websocket.cov', function (err, msg) {
+            let str = '<code>' + JSON.stringify(msg.body) + '</code><br>';
+            $('#status').prepend(str);
+        });
+    };
+
+
+</script>
+
+</body>
+
+</html>

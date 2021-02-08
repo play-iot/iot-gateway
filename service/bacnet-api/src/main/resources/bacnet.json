@@ -1,0 +1,97 @@
+{
+  "dataDir": "/tmp/bacnet",
+  "__system__": {
+    "__eventBus__": {
+      "clientAuth": "NONE",
+      "ssl": false,
+      "clustered": false
+    },
+    "__cluster__": {
+      "active": false
+    }
+  },
+  "__app__": {
+    "__micro__": {
+      "__gateway__": {
+        "enabled": true,
+        "indexAddress": "gateway.index",
+        "localAnnounceMonitorClass": "io.github.zero88.qwe.http.server.gateway.RouterAnnounceListener"
+      },
+      "__serviceDiscovery__": {
+        "enabled": false
+      },
+      "__localServiceDiscovery__": {
+        "enabled": true
+      },
+      "__circuitBreaker__": {
+        "enabled": false
+      }
+    },
+    "__http__": {
+      "port": 8888,
+      "__cors__": {
+        "allowedOriginPattern": "https?://localhost\\:\\d+",
+        "allowedHeaders": [
+          "Access-Control-Request-Method",
+          "Access-Control-Allow-Credentials",
+          "Access-Control-Allow-Origin",
+          "Access-Control-Allow-Headers",
+          "Content-Type"
+        ],
+        "allowCredentials": true
+      },
+      "__rest__": {
+        "__dynamic__": {
+          "enabled": true,
+          "path": ""
+        }
+      },
+      "__api_gateway__": {
+        "enabled": true,
+        "path": "/gw",
+        "address": "gateway.index"
+      },
+      "__websocket__": {
+        "enabled": true,
+        "rootWs": "/ws"
+      }
+    },
+    "__scheduler__": {
+      "schedulerName": "bacnet",
+      "registerAddress": "bacnet.scheduler.register",
+      "registerServiceClass": "io.github.zero88.qwe.iot.connector.bacnet.service.scheduler.BACnetSchedulerApis",
+      "__schedule_worker__": {
+        "poolSize": 2,
+        "maxExecuteTime": 15,
+        "maxExecuteTimeUnit": "SECONDS"
+      }
+    },
+    "__json__": {
+      "subDir": "",
+      "maxSizeInMB": 10,
+      "serviceAddress": "bacnet.storage.json",
+      "serviceHandlerClass": "io.github.zero88.qwe.storage.json.service.JsonStorageService",
+      "chunk": false,
+      "option": {
+        "autoCreate": true,
+        "overwrite": true,
+        "filePerms": "rw-r--r--",
+        "folderPerms": "rwxr-xr-x"
+      }
+    },
+    "__bacnet__": {
+      "modelName": "Rubix",
+      "maxDiscoverTimeout": 10,
+      "maxDiscoverTimeoutUnit": "SECONDS",
+      "completeDiscoverAddress": "io.github.zero88.qwe.iot.connector.bacnet.discover.complete",
+      "readinessAddress": "io.github.zero88.qwe.iot.connector.bacnet.readiness",
+      "gatewayAddress": "gateway.index",
+      "schedulerServiceName": "bacnet-scheduler",
+      "covCoordinatorPersistence": {
+        "type": "json",
+        "file": "bacnet-cov-coordinator.json",
+        "serviceName": "bacnet.storage.json"
+      }
+    }
+  }
+}
