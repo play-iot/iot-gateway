@@ -1,37 +1,60 @@
+apply from: "${rootDir}/buildSrc/helper.gradle"
+
 import com.bmuschko.gradle.docker.tasks.image.DockerBuildImage
 import com.bmuschko.gradle.docker.tasks.image.Dockerfile
+
+static createImages(Project p) {
+    def name = p.prop(p, "baseName", p.name)
+    def registries = p.prop(p, "dockerRegistries")?.split(",")
+    def tags = p.prop(p, "dockerTags", p.version as String).split(",")
+    def prefix = registries == null ? ["${name}"] : registries.collect { "${it}/${name}" }
+    return prefix.collect { r -> tags.collect { v -> "${r}:${v}" } }.flatten() as Set
+}
+
+def APP = "/app"
+def USER = "qwe"
+def UID = 804
+def VOLUME = "/data"
 
 task createDockerFile(type: Dockerfile, group: "docker", description: "Create Dockerfile") {
 
     afterEvaluate {
-        onlyIf { "true" == project.findProperty("dockerable") }
+        onlyIf { "true" == project.prop(project, "dockerable") }
         def fqn = "$project.baseName-$project.version"
+        def dl = ["version=${project.version}", "maintainer=zero88 <sontt246@gmail.com>"]
+        def gl = (project.prop(project, "dockerLabels", "").split(",")).findAll { it.length() > 0 } + dl
+
         destFile = file("${rootProject.buildDir}/docker/${project.baseName}")
 
         from("openjdk:8-jre-slim")
-        workingDir("/app")
+        workingDir("$APP")
         addFile("distributions/${fqn}.tar", "./")
+        runCommand("cp -rf $fqn/* ./ && rm -rf $fqn && mkdir -p $VOLUME")
+        runCommand("useradd -u $UID -G root $USER && chown -R $USER:root $VOLUME && chmod -R 755 $VOLUME")
+        volume("$VOLUME")
+        user("$USER")
         entryPoint("java")
-        defaultCommand("-jar", "${fqn}.jar", "-conf")
-        exposePort(8888)
+        defaultCommand("-jar", "${fqn}.jar", "-conf", "conf/${project.prop(project, "configFile", "config.json")}")
+        label(gl.collect { (it as String).split("=") }.collectEntries { [it[0], it[1]] })
+        exposePort(project.provider({
+            project.prop(project, "docker.ports", "8080,5000").split(",").collect { it.toInteger() }
+        }))
     }
 }
 
-// Use task types
 task dockerBuild(type: DockerBuildImage, group: "docker", description: "Build Docker image") {
     group = "docker"
     dependsOn("build", createDockerFile)
     afterEvaluate {
-        onlyIf { "true" == project.findProperty("dockerable") }
-        inputDir = file(rootProject.buildDir.toPath())
+        onlyIf { "true" == project.prop(project, "dockerable") }
+        inputDir = rootProject.buildDir
         dockerFile = file("${rootProject.buildDir}/docker/${project.baseName}")
-
-        images.add("${project.baseName}:${project.version}")
+        images.value(createImages(project))
     }
 }
 
 task printDockerfileInstructions(group: "docker", description: "Show Dockerfile") {
-    onlyIf { "true" == project.findProperty("dockerable") }
+    onlyIf { "true" == project.prop(project, "dockerable") }
     doLast {
         def instructions = createDockerFile.instructions.get()
         println instructions.collect { it.text }.join(System.properties['line.separator'] as String)

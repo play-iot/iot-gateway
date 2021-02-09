@@ -85,7 +85,7 @@ subprojects {
     tasks {
         jar {
             var manifestMap: Map<String, String> = emptyMap()
-            if (project.hasProperty("executable") && "true" == project.ext.get("standalone")) {
+            if ("true" == ProjectUtils.extraProp(project, "executable")) {
                 val mainClass = project.ext.get("mainClass").toString()
                 val mainVerticle = project.ext.get("mainVerticle").toString()
                 if (mainClass.trim() == "" || mainVerticle.trim() == "") {
@@ -137,14 +137,14 @@ subprojects {
             onlyIf { project.hasProperty("release") }
         }
         distZip {
-            onlyIf { project.ext.has("standalone") && "true" == project.ext.get("standalone") }
+            onlyIf { "true" == ProjectUtils.extraProp(project, "executable") }
             destinationDirectory.set(rootProject.buildDir.resolve("distributions"))
             into("${project.ext.get("baseName")}-${project.version}/conf") {
                 from(project.buildDir.resolve("generated/conf"))
             }
         }
         distTar {
-            onlyIf { project.ext.has("standalone") && "true" == project.ext.get("standalone") }
+            onlyIf { "true" == ProjectUtils.extraProp(project, "executable") }
             destinationDirectory.set(rootProject.buildDir.resolve("distributions"))
             into("${project.ext.get("baseName")}-${project.version}/conf") {
                 from(project.buildDir.resolve("generated/conf"))
