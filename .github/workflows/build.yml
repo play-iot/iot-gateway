@@ -60,8 +60,8 @@ jobs:
           images: qwe-iot-gateway
           tag-latest: true
           tag-sha: true
-          sep-tags: ,
-          sep-labels: ,
+          sep-tags: ","
+          sep-labels: ","
           tag-semver: |
             {{version}}
             {{major}}.{{minor}}
