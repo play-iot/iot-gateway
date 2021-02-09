@@ -78,6 +78,24 @@ subprojects {
 
     tasks {
         jar {
+            var manifestMap: Map<String, String> = emptyMap()
+            if (project.hasProperty("executable") && "true" == project.ext.get("standalone")) {
+                val mainClass = project.ext.get("mainClass").toString()
+                val mainVerticle = project.ext.get("mainVerticle").toString()
+                if (mainClass.trim() == "" || mainVerticle.trim() == "") {
+                    throw TaskExecutionException(
+                        project.tasks.jar.get(),
+                        RuntimeException("Missing mainClass or mainVerticle")
+                    )
+                }
+                val runtime = configurations.runtimeClasspath.get()
+                val classPath = if (runtime.isEmpty) "" else runtime.files.joinToString(" ") { "lib/${it.name}" }
+                manifestMap = mapOf(
+                    "Main-Class" to mainClass,
+                    "Main-Verticle" to mainVerticle,
+                    "Class-Path" to "$classPath conf/"
+                )
+            }
             manifest {
                 attributes(
                     mapOf(
@@ -89,7 +107,7 @@ subprojects {
                         "Build-By" to project.property("buildBy"),
                         "Build-Hash" to project.property("buildHash"),
                         "Build-Date" to Instant.now()
-                    )
+                    ) + manifestMap
                 )
             }
         }
