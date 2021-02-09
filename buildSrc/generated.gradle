@@ -11,13 +11,14 @@ ext.genProps = [
     testResourceDir: "$genDir/test/resources",
 ]
 
-task generateConfigs(group: 'build') {
+task("generateConfigs") {
+    group = "build"
+    description = "Generate dynamic configuration for project"
     onlyIf {
         project.hasProperty('executable') && project.executable == "true"
     }
     doLast {
         def confDir = new FileTreeBuilder(project.buildDir).dir(project.genProps.configDir)
-        println(confDir)
         def projectName = project.ext.get("baseName")
         def moreLogger = project.hasProperty('specifiedLog') && project.specifiedLog ? project.specifiedLog.collect {
             k, v -> "<logger name=\"$k\" level=\"$v\"/>"
@@ -55,7 +56,9 @@ task generateConfigs(group: 'build') {
     }
 }
 
-processResources.dependsOn(generateConfigs)
+processResources {
+    dependsOn("generateConfigs")
+}
 
 sourceSets {
     main {

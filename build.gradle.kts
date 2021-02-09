@@ -114,12 +114,14 @@ subprojects {
         }
         distZip {
             onlyIf { project.ext.has("standalone") && "true" == project.ext.get("standalone") }
+            destinationDirectory.set(rootProject.buildDir.resolve("distributions"))
             into("${project.ext.get("baseName")}-${project.version}/conf") {
                 from(project.buildDir.resolve("generated/conf"))
             }
         }
         distTar {
             onlyIf { project.ext.has("standalone") && "true" == project.ext.get("standalone") }
+            destinationDirectory.set(rootProject.buildDir.resolve("distributions"))
             into("${project.ext.get("baseName")}-${project.version}/conf") {
                 from(project.buildDir.resolve("generated/conf"))
             }
@@ -194,7 +196,6 @@ subprojects {
         useGpgCmd()
         sign(publishing.publications["maven"])
     }
-//    apply("$rootDir/buildSrc/generated.gradle")
 }
 
 task<JacocoReport>("jacocoRootReport") {
@@ -233,7 +234,17 @@ nexusStaging {
     password = project.property("nexus.password") as String?
 }
 
-tasks.test {
-    // Use junit platform for unit tests.
-    useJUnitPlatform()
+tasks {
+    test {
+        useJUnitPlatform()
+    }
+    jar {
+        onlyIf { project != rootProject }
+    }
+    distTar {
+        onlyIf { project != rootProject }
+    }
+    distZip {
+        onlyIf { project != rootProject }
+    }
 }
