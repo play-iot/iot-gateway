@@ -91,6 +91,12 @@ jobs:
                           -PsemanticVersion=${{needs.context.outputs.semanticVersion }} \
                           -PbuildBy="GitHub Action" -PbuildHash=${{ github.sha }}
 
+      - uses: actions/upload-artifact@v2
+        with:
+          name: iot
+          path: ${{ github.workspace }}/build/distributions/*.zip
+          retention-days: 1
+
       - name: Publish GitHub Package
         if: needs.context.outputs.isRelease == 'true' && env.ENABLE_GH_MAVEN == 'true'
         run: |
@@ -160,6 +166,10 @@ jobs:
     needs: [ build, context ]
     if: needs.context.outputs.isRelease == 'true'
     steps:
+      - uses: actions/download-artifact@v2
+        with:
+          name: iot
+          path: ./
       - name: Create GitHub Release
         uses: actions/create-release@v1
         env:
@@ -169,6 +179,8 @@ jobs:
           release_name: Release ${{ needs.context.outputs.branch }}
           draft: false
           prerelease: false
+          files: |
+            ./*.zip
 
   promote:
     name: Promote Sonatype OSSRH
