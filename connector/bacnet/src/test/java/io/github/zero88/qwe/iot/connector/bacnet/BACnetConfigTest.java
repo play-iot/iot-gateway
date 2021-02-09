@@ -45,12 +45,12 @@ public class BACnetConfigTest {
     @Test
     public void test_deserialize() {
         BACnetConfig config = JsonData.from(
-            "{\"vendorId\":1173,\"vendorName\":\"QWE iO Operations Pty Ltd\",\"deviceId\":85084," +
+            "{\"vendorId\":1173,\"vendorName\":\"QWE\",\"deviceId\":85084," +
             "\"modelName\":\"QWEIO-Edge28\",\"deviceName\":\"QWEIO-Edge28-85084\",\"maxDiscoverTimeout\":10," +
             "\"maxDiscoverTimeoutUnit\":\"SECONDS\"}", BACnetConfig.class);
         Assert.assertEquals(10000, config.getMaxTimeoutInMS());
         Assert.assertEquals(1173, config.getVendorId());
-        Assert.assertEquals("QWE iO Operations Pty Ltd", config.getVendorName());
+        Assert.assertEquals("QWE", config.getVendorName());
         Assert.assertEquals("QWEIO-Edge28", config.getModelName());
         Assert.assertEquals(85084, config.getDeviceId());
         Assert.assertEquals("QWEIO-Edge28-85084", config.getDeviceName());

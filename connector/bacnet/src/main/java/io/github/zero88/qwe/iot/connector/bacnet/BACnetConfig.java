@@ -63,11 +63,11 @@ public class BACnetConfig implements IConfig {
     }
 
     protected int maxDeviceId() {
-        return 80000;
+        return 90000;
     }
 
     protected int minDeviceId() {
-        return 90000;
+        return 80000;
     }
 
     private int genDeviceId() {
