@@ -1,5 +1,6 @@
 package io.github.zero88.qwe.iot.connector.bacnet;
 
+import java.security.SecureRandom;
 import java.util.concurrent.TimeUnit;
 
 import io.github.zero88.qwe.CarlConfig.AppConfig;
@@ -70,7 +71,7 @@ public class BACnetConfig implements IConfig {
     }
 
     private int genDeviceId() {
-        return (int) (Math.random() * (maxDeviceId() - minDeviceId() + 1)) + minDeviceId();
+        return new SecureRandom().ints(minDeviceId(), maxDeviceId()).findAny().orElse(minDeviceId());
     }
 
     @JsonIgnore

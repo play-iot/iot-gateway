@@ -165,6 +165,10 @@ public class PropertyValuesMixinTest {
     private void assertBACnetTime(JsonObject expected, JsonObject actual, String key) {
         final String dateExpected = expected.getString(key);
         final String dateActual = actual.getString(key);
+        compareDateTime(dateExpected, dateActual);
+    }
+
+    private void compareDateTime(String dateExpected, String dateActual) {
         final int expectedLength = dateExpected.length();
         final int actualLength = dateActual.length();
         System.out.println("Date expected: " + dateExpected);
@@ -176,11 +180,13 @@ public class PropertyValuesMixinTest {
             final int gap = Math.abs(actualLength - expectedLength);
             final String actualFix = actualLength > expectedLength
                                      ? dateActual.substring(0, actualLength - gap - 1) +
-                                       dateActual.substring(actualLength - gap)
+                                       dateActual.substring(actualLength - 1)
                                      : dateActual;
+            System.out.println("Date actualFix: " + actualFix);
             final String expectedFix = actualLength < expectedLength ?
                                        dateExpected.substring(0, expectedLength - gap - 1) +
-                                       dateExpected.substring(expectedLength - gap) : dateExpected;
+                                       dateExpected.substring(expectedLength - 1) : dateExpected;
+            System.out.println("Date expectedFix: " + expectedFix);
             Assert.assertEquals(expectedFix, actualFix);
         }
     }
