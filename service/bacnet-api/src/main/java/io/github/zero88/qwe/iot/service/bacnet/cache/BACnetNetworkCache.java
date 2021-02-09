@@ -1,6 +1,5 @@
 package io.github.zero88.qwe.iot.service.bacnet.cache;
 
-import java.util.Objects;
 import java.util.Optional;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
@@ -12,13 +11,13 @@ import io.github.zero88.qwe.protocol.CommunicationProtocol;
 import io.github.zero88.qwe.protocol.network.Ipv4Network;
 import io.github.zero88.qwe.protocol.network.Ipv6Network;
 import io.github.zero88.qwe.protocol.serial.SerialPortProtocol;
-import io.github.zero88.utils.Strings;
 import io.github.zero88.utils.UUID64;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
+//TODO more implementation
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class BACnetNetworkCache extends AbstractLocalCache<String, CommunicationProtocol, BACnetNetworkCache>
     implements LocalDataCache<String, CommunicationProtocol> {
@@ -52,14 +51,15 @@ public final class BACnetNetworkCache extends AbstractLocalCache<String, Communi
         return this;
     }
 
-    public BACnetNetworkCache addDataKey(@NonNull CommunicationProtocol protocol, String dataPointKey) {
-        if (Objects.isNull(get(protocol.identifier()))) {
-            throw new IllegalArgumentException("Invalid or unreachable network " + protocol.identifier());
-        }
-        dataPointCache.put(protocol.identifier(),
-                           UUID64.uuidToBase64(Strings.requireNotBlank(dataPointKey, "Missing data point network_id")));
-        return this;
-    }
+    //    public BACnetNetworkCache addDataKey(@NonNull CommunicationProtocol protocol, String dataPointKey) {
+    //        if (Objects.isNull(get(protocol.identifier()))) {
+    //            throw new IllegalArgumentException("Invalid or unreachable network " + protocol.identifier());
+    //        }
+    //        dataPointCache.put(protocol.identifier(),
+    //                           UUID64.uuidToBase64(Strings.requireNotBlank(dataPointKey, "Missing data point
+    //                           network_id")));
+    //        return this;
+    //    }
 
     public Optional<UUID> getDataKey(@NonNull String key) {
         return Optional.ofNullable(dataPointCache.get(key)).map(UUID64::uuid64ToUuid);

@@ -9,7 +9,6 @@ import io.github.zero88.qwe.cache.LocalDataCache;
 import io.github.zero88.qwe.iot.service.bacnet.cache.BACnetObjectCache.BACnetObjectCacheKey;
 import io.github.zero88.qwe.iot.service.bacnet.cache.BACnetObjectCache.BACnetObjectCacheValue;
 import io.github.zero88.qwe.protocol.CommunicationProtocol;
-import io.github.zero88.utils.Strings;
 import io.github.zero88.utils.UUID64;
 
 import com.serotonin.bacnet4j.type.primitive.ObjectIdentifier;
@@ -18,6 +17,7 @@ import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
+//TODO more implementation
 public final class BACnetObjectCache
     extends AbstractLocalCache<BACnetObjectCacheKey, BACnetObjectCacheValue, BACnetDeviceCache>
     implements LocalDataCache<BACnetObjectCacheKey, BACnetObjectCacheValue> {
@@ -38,15 +38,16 @@ public final class BACnetObjectCache
         return this;
     }
 
-    public BACnetObjectCache addDataKey(@NonNull CommunicationProtocol protocol, @NonNull ObjectIdentifier remoteDevice,
-                                        @NonNull ObjectIdentifier objectCode, String dataPointId) {
-        cache().computeIfPresent(new BACnetObjectCacheKey(protocol, remoteDevice), (key, value) -> {
-            value.put(objectCode,
-                      UUID64.uuidToBase64(Strings.requireNotBlank(dataPointId, "Missing data point point_id")));
-            return value;
-        });
-        return this;
-    }
+    //    public BACnetObjectCache addDataKey(@NonNull CommunicationProtocol protocol, @NonNull ObjectIdentifier
+    //    remoteDevice,
+    //                                        @NonNull ObjectIdentifier objectCode, String dataPointId) {
+    //        cache().computeIfPresent(new BACnetObjectCacheKey(protocol, remoteDevice), (key, value) -> {
+    //            value.put(objectCode,
+    //                      UUID64.uuidToBase64(Strings.requireNotBlank(dataPointId, "Missing data point point_id")));
+    //            return value;
+    //        });
+    //        return this;
+    //    }
 
     public Optional<UUID> getDataKey(@NonNull CommunicationProtocol protocol, @NonNull ObjectIdentifier remoteDevice,
                                      @NonNull ObjectIdentifier objectCode) {
