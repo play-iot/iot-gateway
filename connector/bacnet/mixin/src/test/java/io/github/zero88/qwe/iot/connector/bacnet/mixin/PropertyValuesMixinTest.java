@@ -163,21 +163,24 @@ public class PropertyValuesMixinTest {
     }
 
     private void assertBACnetTime(JsonObject expected, JsonObject actual, String key) {
-        final String expirationExpected = expected.getString(key);
-        final String expirationActual = actual.getString(key);
-        final int expectedLength = expirationExpected.length();
-        final int actualLength = expirationActual.length();
+        final String dateExpected = expected.getString(key);
+        final String dateActual = actual.getString(key);
+        final int expectedLength = dateExpected.length();
+        final int actualLength = dateActual.length();
+        System.out.println("Date expected: " + dateExpected);
+        System.out.println("Date actual: " + dateActual);
         if (expectedLength == actualLength) {
-            Assert.assertEquals(expirationExpected, expirationActual);
+            Assert.assertEquals(dateExpected, dateActual);
         } else {
             System.out.println("Due to BACnet DateTime truncate `.SSS` to `.SS` or `.S`");
             final int gap = Math.abs(actualLength - expectedLength);
-            final String actualFix = actualLength > expectedLength ?
-                                     expirationActual.substring(0, actualLength - gap - 1) +
-                                     expirationActual.substring(actualLength - gap) : expirationActual;
+            final String actualFix = actualLength > expectedLength
+                                     ? dateActual.substring(0, actualLength - gap - 1) +
+                                       dateActual.substring(actualLength - gap)
+                                     : dateActual;
             final String expectedFix = actualLength < expectedLength ?
-                                       expirationExpected.substring(0, expectedLength - gap - 1) +
-                                       expirationExpected.substring(expectedLength - gap) : expirationExpected;
+                                       dateExpected.substring(0, expectedLength - gap - 1) +
+                                       dateExpected.substring(expectedLength - gap) : dateExpected;
             Assert.assertEquals(expectedFix, actualFix);
         }
     }
