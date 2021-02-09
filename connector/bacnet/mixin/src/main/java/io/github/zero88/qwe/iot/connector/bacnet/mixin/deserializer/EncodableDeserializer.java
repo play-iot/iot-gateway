@@ -10,6 +10,7 @@ import io.github.zero88.qwe.exceptions.CarlException;
 import io.github.zero88.qwe.exceptions.converter.CarlExceptionConverter;
 import io.github.zero88.utils.Functions;
 import io.github.zero88.utils.Strings;
+import io.reactivex.annotations.Nullable;
 
 import com.serotonin.bacnet4j.obj.ObjectProperties;
 import com.serotonin.bacnet4j.obj.ObjectPropertyTypeDefinition;
@@ -28,6 +29,7 @@ import lombok.NonNull;
  * @param <V> Type of {@code Java object}
  * @since 1.0.0
  */
+@SuppressWarnings("rawtypes")
 public interface EncodableDeserializer<T extends Encodable, V> {
 
     /**
@@ -45,9 +47,6 @@ public interface EncodableDeserializer<T extends Encodable, V> {
      * @since 1.0.0
      */
     static Encodable parse(@NonNull PropertyIdentifier propertyIdentifier, Object value) {
-        if (Objects.isNull(value)) {
-            return Null.instance;
-        }
         final PropertyTypeDefinition definition = ObjectProperties.getPropertyTypeDefinition(propertyIdentifier);
         if (Objects.isNull(definition)) {
             LOGGER.warn("Not found Encodable definition of {}", propertyIdentifier);
@@ -72,9 +71,6 @@ public interface EncodableDeserializer<T extends Encodable, V> {
      */
     static Encodable parse(@NonNull ObjectIdentifier objectIdentifier, @NonNull PropertyIdentifier propertyIdentifier,
                            Object value) {
-        if (Objects.isNull(value)) {
-            return Null.instance;
-        }
         final PropertyTypeDefinition definition = Optional.ofNullable(
             ObjectProperties.getObjectPropertyTypeDefinition(objectIdentifier.getObjectType(), propertyIdentifier))
                                                           .map(ObjectPropertyTypeDefinition::getPropertyTypeDefinition)
@@ -91,17 +87,20 @@ public interface EncodableDeserializer<T extends Encodable, V> {
     }
 
     /**
-     * Parse encodable.
+     * Parse Encodable.
      *
      * @param value        the value
      * @param definition   the definition
      * @param deserializer the deserializer
-     * @return the encodable
+     * @return the Encodable
      * @since 1.0.0
      */
     @SuppressWarnings("unchecked")
-    static Encodable parse(@NonNull Object value, @NonNull PropertyTypeDefinition definition,
+    static Encodable parse(Object value, @NonNull PropertyTypeDefinition definition,
                            @NonNull EncodableDeserializer deserializer) {
+        if (!deserializer.ableToParseNull() && Objects.isNull(value)) {
+            return Null.instance;
+        }
         return Functions.getOrThrow(() -> deserializer.parse(deserializer.cast(value)), t -> {
             final String msg = Strings.format("Cannot parse {0} ''{1}'' of ''{2}'' as data type {3}",
                                               definition.isCollection() ? "list item" : "value", value,
@@ -144,14 +143,24 @@ public interface EncodableDeserializer<T extends Encodable, V> {
     @NonNull Class<V> javaClass();
 
     /**
+     * Able to parse {@code null} value
+     *
+     * @return {@code true} if able to parse {@code null} value
+     * @apiNote Default is {@code false}
+     */
+    default boolean ableToParseNull() {
+        return false;
+    }
+
+    /**
      * Cast given value to java object.
      *
      * @param value the value
      * @return the v
      * @since 1.0.0
      */
-    @NonNull
-    default V cast(@NonNull Object value) {
+    @Nullable
+    default V cast(Object value) {
         return javaClass().cast(value);
     }
 
@@ -162,6 +171,6 @@ public interface EncodableDeserializer<T extends Encodable, V> {
      * @return the t
      * @since 1.0.0
      */
-    T parse(@NonNull V value);
+    T parse(V value);
 
 }

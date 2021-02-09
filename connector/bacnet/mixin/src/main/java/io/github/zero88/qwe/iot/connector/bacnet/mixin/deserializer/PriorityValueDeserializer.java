@@ -26,7 +26,7 @@ public final class PriorityValueDeserializer
     }
 
     @Override
-    public PriorityValue parse(@NonNull Object value) {
+    public PriorityValue parse(Object value) {
         if (Objects.isNull(value)) {
             return new PriorityValue(Null.instance);
         }
@@ -42,6 +42,11 @@ public final class PriorityValueDeserializer
             return new PriorityValue(new CharacterString((String) value));
         }
         throw new IllegalArgumentException("Unsupported priority value type " + value.getClass());
+    }
+
+    @Override
+    public boolean ableToParseNull() {
+        return true;
     }
 
 }
