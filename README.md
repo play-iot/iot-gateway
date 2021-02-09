@@ -14,6 +14,10 @@
 
 IoT Gateway in `Event-driven architecture` based on [QWE](https://github.com/zero88/qwe)
 
+## Overview
+
+![QWE IoT Gateway](./.github/IoTGateway.png "IoTGateway")
+
 ## Benchmark
 
 Simple HTTP server benchmark on [Raspberry-pi-3](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/)
