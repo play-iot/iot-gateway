@@ -1,4 +1,4 @@
-# BACnet
+# BACnet Service API
 
 `BACnet service` is `RESTful API service` that provides an interface to the `BACnet System` and can be used for
 communicating with other `BACnet devices`.
