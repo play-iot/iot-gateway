@@ -73,6 +73,8 @@ jobs:
         run: |
           [[ "${{ steps.context.outputs.isTag }}" == "true" ]] && sv="" || sv=$(grep semanticVersion gradle.properties | cut -d'=' -f2)
           dockerTags="${{ steps.docker_context.outputs.tags }}"
+          echo "$dockerTags"
+          echo "${{ steps.docker_context.outputs.labels }}"
           echo ::set-output name=semanticVersion::$sv
           echo ::set-output name=dockerTags::${dockerTags//qwe-iot-gateway:/}
 
@@ -120,9 +122,9 @@ jobs:
       - name: Docker
         run: |
           ./gradlew docker -x test \
-                        -PdockerTags=${{ needs.context.outputs.dockerTags }} \
-                        -PdockerLabels=${{ needs.context.outputs.dockerLabels }}
-                        -PdockerRegistries=ghcr.io/zero88,docker.io/zero88
+                        -PdockerTags="${{ needs.context.outputs.dockerTags }}" \
+                        -PdockerLabels="${{ needs.context.outputs.dockerLabels }}" \
+                        -PdockerRegistries="ghcr.io/zero88,docker.io/zero88"
 
       - name: Login to DockerHub
         uses: docker/login-action@v1
