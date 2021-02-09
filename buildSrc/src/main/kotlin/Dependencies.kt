@@ -18,6 +18,7 @@ object PluginLibs {
 
     const val sonarQube = "org.sonarqube"
     const val nexusStaging = "io.codearte.nexus-staging"
+    const val docker = "com.bmuschko.docker-remote-api"
 }
 
 object TestLibs {

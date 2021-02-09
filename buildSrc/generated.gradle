@@ -1,3 +1,5 @@
+apply from: "${rootDir}/buildSrc/helper.gradle"
+
 def genDir = "generated"
 
 ext.genProps = [
@@ -14,9 +16,7 @@ ext.genProps = [
 task("generateConfigs") {
     group = "build"
     description = "Generate dynamic configuration for project"
-    onlyIf {
-        project.hasProperty('executable') && project.executable == "true"
-    }
+    onlyIf { "true" == project.prop(project, "executable") }
     doLast {
         def confDir = new FileTreeBuilder(project.buildDir).dir(project.genProps.configDir)
         def projectName = project.ext.get("baseName")
@@ -36,7 +36,7 @@ task("generateConfigs") {
                 include "*.json"
             }
         }
-        if (project.hasProperty("service") && project.service == "true") {
+        if ("true" == project.prop(project, "unixService")) {
             copy {
                 into confDir
                 from("${projectDir}/src/service") {
@@ -47,7 +47,7 @@ task("generateConfigs") {
                 }
             }
         }
-        if (project.hasProperty("sample") && project.sample == "true") {
+        if ("true" == project.prop(project, "hasSample")) {
             copy {
                 into confDir
                 from("${projectDir}/src/sample")

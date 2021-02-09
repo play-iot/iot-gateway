@@ -9,6 +9,7 @@ plugins {
     `maven-publish`
     jacoco
     signing
+    id(PluginLibs.docker)
     id(PluginLibs.sonarQube) version PluginLibs.Version.sonarQube
     id(PluginLibs.nexusStaging) version PluginLibs.Version.nexusStaging
 }
@@ -39,7 +40,9 @@ subprojects {
     apply(plugin = "jacoco")
     apply(plugin = "signing")
     apply(plugin = "maven-publish")
+    apply(plugin = PluginLibs.docker)
     apply(from = "$rootDir/buildSrc/generated.gradle")
+    apply(from = "$rootDir/buildSrc/docker.gradle")
     project.version = "$version$semanticVersion"
     project.ext.set("baseName", ProjectUtils.computeBaseName(project))
     project.ext.set("title", findProperty("title") ?: project.ext.get("baseName"))
@@ -56,6 +59,9 @@ subprojects {
             println("- Gradle Version:   ${GradleVersion.current()}")
             println("- Java Version:     ${Jvm.current()}")
         }
+    }
+
+    docker {
     }
 
     java {
@@ -79,7 +85,7 @@ subprojects {
     tasks {
         jar {
             var manifestMap: Map<String, String> = emptyMap()
-            if (project.hasProperty("executable") && "true" == project.ext.get("standalone")) {
+            if ("true" == ProjectUtils.extraProp(project, "executable")) {
                 val mainClass = project.ext.get("mainClass").toString()
                 val mainVerticle = project.ext.get("mainVerticle").toString()
                 if (mainClass.trim() == "" || mainVerticle.trim() == "") {
@@ -131,14 +137,14 @@ subprojects {
             onlyIf { project.hasProperty("release") }
         }
         distZip {
-            onlyIf { project.ext.has("standalone") && "true" == project.ext.get("standalone") }
+            onlyIf { "true" == ProjectUtils.extraProp(project, "executable") }
             destinationDirectory.set(rootProject.buildDir.resolve("distributions"))
             into("${project.ext.get("baseName")}-${project.version}/conf") {
                 from(project.buildDir.resolve("generated/conf"))
             }
         }
         distTar {
-            onlyIf { project.ext.has("standalone") && "true" == project.ext.get("standalone") }
+            onlyIf { "true" == ProjectUtils.extraProp(project, "executable") }
             destinationDirectory.set(rootProject.buildDir.resolve("distributions"))
             into("${project.ext.get("baseName")}-${project.version}/conf") {
                 from(project.buildDir.resolve("generated/conf"))

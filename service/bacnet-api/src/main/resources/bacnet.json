@@ -1,5 +1,5 @@
 {
-  "dataDir": "/tmp/bacnet",
+  "dataDir": "/data/bacnet",
   "__system__": {
     "__eventBus__": {
       "clientAuth": "NONE",
