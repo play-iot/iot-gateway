@@ -70,18 +70,4 @@ public final class BACnetDeviceExplorer extends BACnetExplorer<ObjectIdentifier,
                      .map(rdm -> BACnetDeviceEntity.from(networkId, rdm));
     }
 
-    private DiscoveryArguments validateCache(@NonNull DiscoveryArguments args) {
-        final BACnetDevice device = getLocalDeviceFromCache(args);
-        networkCache().getDataKey(device.protocol().identifier())
-                      .orElseThrow(() -> new NotFoundException(
-                          "Not found a persistence network by network code " + device.protocol().identifier()));
-        final Optional<UUID> deviceId = deviceCache().getDataKey(device.protocol(), args.params().remoteDeviceId());
-        if (deviceId.isPresent()) {
-            throw new AlreadyExistException(
-                "Already existed device " + ObjectIdentifierMixin.serialize(args.params().remoteDeviceId()) +
-                " in network " + device.protocol().identifier());
-        }
-        return args;
-    }
-
 }

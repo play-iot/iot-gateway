@@ -73,22 +73,4 @@ public final class BACnetObjectExplorer extends BACnetExplorer<ObjectIdentifier,
                          .doFinally(device::stop);
     }
 
-    private DiscoveryArguments validateCache(@NonNull DiscoveryArguments args) {
-        final BACnetDevice device = getLocalDeviceFromCache(args);
-        networkCache().getDataKey(device.protocol().identifier())
-                      .orElseThrow(() -> new NotFoundException(
-                          "Not found a persistence network by network code " + device.protocol().identifier()));
-        deviceCache().getDataKey(device.protocol(), args.params().remoteDeviceId())
-                     .orElseThrow(() -> new NotFoundException(
-                         "Not found a persistence device by remote device " + args.params().remoteDeviceId()));
-        final Optional<UUID> objectId = objectCache().getDataKey(device.protocol(), args.params().remoteDeviceId(),
-                                                                 args.params().objectCode());
-        if (objectId.isPresent()) {
-            throw new AlreadyExistException(
-                "Already existed object " + ObjectIdentifierMixin.serialize(args.params().objectCode()) +
-                " in device " + args.params().remoteDeviceId() + " in network " + device.protocol().identifier());
-        }
-        return args;
-    }
-
 }
