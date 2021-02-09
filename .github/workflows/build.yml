@@ -26,7 +26,9 @@ jobs:
       isRelease: ${{ steps.context.outputs.isTag }}
       afterRelease: ${{ steps.context.outputs.isAfterMergedReleasePR }}
       version: ${{ steps.context.outputs.version }}
-      semanticVersion: ${{ steps.semantic.outputs.semanticVersion }}
+      semanticVersion: ${{ steps.conclusion.outputs.semanticVersion }}
+      dockerTags: ${{ steps.conclusion.outputs.dockerTags }}
+      dockerLabels: ${{ steps.docker_context.outputs.labels }}
 
     steps:
       - uses: actions/checkout@v2
@@ -48,13 +50,31 @@ jobs:
         uses: zero88/gh-project-context@v1
         with:
           dry: false
+          mustSign: true
 
-      - name: Find semantic version
-        id: semantic
+      - name: Docker meta
+        id: docker_context
+        uses: crazy-max/ghaction-docker-meta@v1
+        if: steps.context.outputs.decision_build == 'true'
+        with:
+          images: qwe-iot-gateway
+          tag-latest: true
+          tag-sha: true
+          sep-tags: ,
+          sep-labels: ,
+          tag-semver: |
+            {{version}}
+            {{major}}.{{minor}}
+
+      - name: Conclusion
+        if: steps.context.outputs.decision_build == 'true'
+        id: conclusion
         shell: bash
         run: |
           [[ "${{ steps.context.outputs.isTag }}" == "true" ]] && sv="" || sv=$(grep semanticVersion gradle.properties | cut -d'=' -f2)
+          dockerTags="${{ steps.docker_context.outputs.tags }}"
           echo ::set-output name=semanticVersion::$sv
+          echo ::set-output name=dockerTags::${dockerTags//qwe-iot-gateway:/}
 
   build:
     runs-on: ubuntu-latest
@@ -78,10 +98,10 @@ jobs:
           java-version: 1.8
 
       - name: Cache Gradle packages
-        uses: actions/cache@v2.1.4
+        uses: actions/cache@v2
         with:
           path: ~/.gradle/caches
-          key: ${{ runner.os }}-gradle-build-${{ hashFiles('**/*.gradle') }}
+          key: ${{ runner.os }}-gradle-build-${{ hashFiles('**/*.gradle.kts') }}
           restore-keys: ${{ runner.os }}-gradle-build
 
       - name: Build
@@ -90,6 +110,33 @@ jobs:
                           -Pversion=${{ needs.context.outputs.version }} \
                           -PsemanticVersion=${{needs.context.outputs.semanticVersion }} \
                           -PbuildBy="GitHub Action" -PbuildHash=${{ github.sha }}
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v1
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+
+      - name: Docker
+        run: |
+          ./gradlew docker -x test \
+                        -PdockerTags=${{ needs.context.outputs.dockerTags }} \
+                        -PdockerLabels=${{ needs.context.outputs.dockerLabels }}
+                        -PdockerRegistries=ghcr.io/zero88,docker.io/zero88
+
+      - name: Login to DockerHub
+        uses: docker/login-action@v1
+        if: ${{ steps.context.outputs.isRelease == 'true' }}
+        with:
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.OSS_GHA_DOCKER_HUB }}
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.OSS_GITHUB_TOKEN }}
 
       - uses: actions/upload-artifact@v2
         with:
@@ -139,17 +186,17 @@ jobs:
           java-version: 11
 
       - name: Cache SonarCloud packages
-        uses: actions/cache@v2.1.4
+        uses: actions/cache@v2
         with:
           path: ~/.sonar/cache
           key: ${{ runner.os }}-sonar
           restore-keys: ${{ runner.os }}-sonar
 
       - name: Cache Gradle packages
-        uses: actions/cache@v2.1.4
+        uses: actions/cache@v2
         with:
           path: ~/.gradle/caches
-          key: ${{ runner.os }}-gradle-test-${{ hashFiles('**/*.gradle') }}
+          key: ${{ runner.os }}-gradle-test-${{ hashFiles('**/*.gradle.kts') }}
           restore-keys: ${{ runner.os }}-gradle-test
 
       - name: Test
