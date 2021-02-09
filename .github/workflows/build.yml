@@ -171,12 +171,12 @@ jobs:
           name: iot
           path: ./
       - name: Create GitHub Release
-        uses: actions/create-release@v1
+        uses: softprops/action-gh-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ needs.context.outputs.branch }}
-          release_name: Release ${{ needs.context.outputs.branch }}
+          name: Release ${{ needs.context.outputs.branch }}
           draft: false
           prerelease: false
           files: |
