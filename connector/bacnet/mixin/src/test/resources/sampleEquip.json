@@ -10,8 +10,8 @@
     "read-property-multiple": true,
     "unconfirmed-cov-notification-multiple": false,
     "remove-list-element": false,
-    "unconfirmed-cov-notification": false,
     "life-safety-operation": false,
+    "unconfirmed-cov-notification": false,
     "create-object": true,
     "confirmed-event-notification": false,
     "confirmed-cov-notification": false,
@@ -45,10 +45,15 @@
   "protocol-version": 1,
   "model-name": "IO-30S-BM",
   "number-of-apdu-retries": 3,
-  "object-identifier": "device:60000",
-  "segmentation-supported": "no-segmentation",
-  "protocol-revision": 4,
   "apdu-timeout": 3000,
+  "protocol-revision": 4,
+  "segmentation-supported": {
+    "rawValue": 3,
+    "value": "no-segmentation"
+  },
+  "object-identifier": "device:60000",
+  "firmware-revision": "1.0.00",
+  "application-software-version": "0.5.24",
   "object-list": [
     "device:60000",
     "analog-input:1",
@@ -58,16 +63,17 @@
     "binary-value:1001",
     "analog-value:1000"
   ],
-  "application-software-version": "0.5.24",
-  "firmware-revision": "1.0.00",
   "object-name": "IO-30S-BM",
   "object-type": "device",
-  "system-status": "operational",
+  "system-status": {
+    "rawValue": 0,
+    "value": "operational"
+  },
   "vendor-identifier": 229,
   "vendor-name": "Infocon Holding",
   "database-revision": 0,
-  "device-address-binding": [],
   "max-apdu-length-accepted": 1476,
+  "device-address-binding": [],
   "address": {
     "type": "IP",
     "hostAddress": "192.168.15.203:47808",

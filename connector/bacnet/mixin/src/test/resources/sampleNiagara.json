@@ -10,8 +10,8 @@
     "read-property-multiple": true,
     "unconfirmed-cov-notification-multiple": false,
     "remove-list-element": true,
-    "unconfirmed-cov-notification": true,
     "life-safety-operation": false,
+    "unconfirmed-cov-notification": true,
     "create-object": false,
     "confirmed-event-notification": true,
     "confirmed-cov-notification": true,
@@ -45,63 +45,64 @@
   "protocol-version": 1,
   "model-name": "Niagara4 Station",
   "number-of-apdu-retries": 3,
-  "object-identifier": "device:432324",
-  "segmentation-supported": "segmented-both",
-  "protocol-revision": 14,
   "apdu-timeout": 3000,
+  "protocol-revision": 14,
+  "segmentation-supported": {
+    "rawValue": 0,
+    "value": "segmented-both"
+  },
+  "object-identifier": "device:432324",
+  "firmware-revision": "4.4.93.40.6",
+  "application-software-version": "Tridium 4.4.93.40.6",
   "object-list": [
     "device:432324"
   ],
-  "application-software-version": "Tridium 4.4.93.40.6",
-  "firmware-revision": "4.4.93.40.6",
   "object-name": "Ciper_50_432324",
   "object-type": "device",
-  "system-status": "operational",
+  "system-status": {
+    "rawValue": 0,
+    "value": "operational"
+  },
   "vendor-identifier": 36,
   "vendor-name": "Tridium",
   "database-revision": 652,
+  "max-apdu-length-accepted": 1476,
   "device-address-binding": [
     {
       "device-object-identifier": "device:0",
       "device-address": {
-        "hostAddress": "192.168.15.55:47808",
+        "type": "IP",
         "networkNumber": 0,
-        "macAddress": "C0-A8-0F-37-BA-C0",
-        "type": "IP"
+        "hostAddress": "192.168.15.55:47808",
+        "macAddress": "C0-A8-0F-37-BA-C0"
       }
     },
     {
       "device-object-identifier": "device:1315",
       "device-address": {
-        "hostAddress": "15",
+        "type": "MSTP",
         "networkNumber": 3,
-        "macAddress": "0F",
-        "type": "MSTP"
+        "hostAddress": "15",
+        "macAddress": "0F"
       }
     },
     {
       "device-object-identifier": "device:60000",
       "device-address": {
-        "hostAddress": "0.25.151.1:800",
+        "type": "IP",
         "networkNumber": 2,
-        "macAddress": "00-19-97-01-03-20",
-        "type": "IP"
+        "hostAddress": "0.25.151.1:800",
+        "macAddress": "00-19-97-01-03-20"
       }
     },
     {
       "device-object-identifier": "device:3321",
       "device-address": {
-        "hostAddress": "7",
+        "type": "MSTP",
         "networkNumber": 3,
-        "macAddress": "07",
-        "type": "MSTP"
+        "hostAddress": "7",
+        "macAddress": "07"
       }
     }
-  ],
-  "max-apdu-length-accepted": 1476,
-  "address": {
-    "hostAddress": "192.168.15.125:47808",
-    "networkNumber": 0,
-    "macAddress": "C0-A8-0F-7D-BA-C0"
-  }
+  ]
 }
