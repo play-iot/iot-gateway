@@ -1,0 +1,39 @@
+import com.bmuschko.gradle.docker.tasks.image.DockerBuildImage
+import com.bmuschko.gradle.docker.tasks.image.Dockerfile
+
+task createDockerFile(type: Dockerfile, group: "docker", description: "Create Dockerfile") {
+
+    afterEvaluate {
+        onlyIf { "true" == project.findProperty("dockerable") }
+        def fqn = "$project.baseName-$project.version"
+        destFile = file("${rootProject.buildDir}/docker/${project.baseName}")
+
+        from("openjdk:8-jre-slim")
+        workingDir("/app")
+        addFile("distributions/${fqn}.tar", "./")
+        entryPoint("java")
+        defaultCommand("-jar", "${fqn}.jar", "-conf")
+        exposePort(8888)
+    }
+}
+
+// Use task types
+task dockerBuild(type: DockerBuildImage, group: "docker", description: "Build Docker image") {
+    group = "docker"
+    dependsOn("build", createDockerFile)
+    afterEvaluate {
+        onlyIf { "true" == project.findProperty("dockerable") }
+        inputDir = file(rootProject.buildDir.toPath())
+        dockerFile = file("${rootProject.buildDir}/docker/${project.baseName}")
+
+        images.add("${project.baseName}:${project.version}")
+    }
+}
+
+task printDockerfileInstructions(group: "docker", description: "Show Dockerfile") {
+    onlyIf { "true" == project.findProperty("dockerable") }
+    doLast {
+        def instructions = createDockerFile.instructions.get()
+        println instructions.collect { it.text }.join(System.properties['line.separator'] as String)
+    }
+}

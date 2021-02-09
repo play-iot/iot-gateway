@@ -9,6 +9,7 @@ plugins {
     `maven-publish`
     jacoco
     signing
+    id(PluginLibs.docker)
     id(PluginLibs.sonarQube) version PluginLibs.Version.sonarQube
     id(PluginLibs.nexusStaging) version PluginLibs.Version.nexusStaging
 }
@@ -39,7 +40,9 @@ subprojects {
     apply(plugin = "jacoco")
     apply(plugin = "signing")
     apply(plugin = "maven-publish")
+    apply(plugin = PluginLibs.docker)
     apply(from = "$rootDir/buildSrc/generated.gradle")
+    apply(from = "$rootDir/buildSrc/docker.gradle")
     project.version = "$version$semanticVersion"
     project.ext.set("baseName", ProjectUtils.computeBaseName(project))
     project.ext.set("title", findProperty("title") ?: project.ext.get("baseName"))
@@ -56,6 +59,9 @@ subprojects {
             println("- Gradle Version:   ${GradleVersion.current()}")
             println("- Java Version:     ${Jvm.current()}")
         }
+    }
+
+    docker {
     }
 
     java {
