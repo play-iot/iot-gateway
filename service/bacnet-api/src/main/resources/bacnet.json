@@ -59,7 +59,7 @@
     "__scheduler__": {
       "schedulerName": "bacnet",
       "registerAddress": "bacnet.scheduler.register",
-      "registerServiceClass": "io.github.zero88.qwe.iot.connector.bacnet.service.scheduler.BACnetSchedulerApis",
+      "registerServiceClass": "io.github.zero88.qwe.iot.service.bacnet.service.scheduler.BACnetSchedulerApis",
       "__schedule_worker__": {
         "poolSize": 2,
         "maxExecuteTime": 15,
