@@ -12,7 +12,7 @@
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=zero88_qwe-iot-gateway&metric=coverage)](https://sonarcloud.io/dashboard?id=zero88_qwe-iot-gateway)
 
 
-IoT Gateway in `Event-driven architecture` based on [QWE](https://github.com/zero88/qwe)
+[IoT Gateway](https://openautomationsoftware.com/open-automation-systems-blog/what-is-an-iot-gateway) for `Machine-to-Machine` and `Machine-to-Cloud`
 
 ## Overview
 
@@ -24,3 +24,7 @@ Simple HTTP server benchmark on [Raspberry-pi-3](https://www.raspberrypi.org/pro
 
 ![Network Benchmark Record](./benchmark/network-benchmark.record.gif "benchmark.record")
 ![Network Benchmark Result](./benchmark/network-benchmark.result.png "benchmark.result")
+
+## References
+
+Inspired by `Event Driven architecuture`. Core module in [`QWE`](https://github.com/zero88/qwe)
