@@ -4,6 +4,8 @@
 ![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/zero88/qwe-iot-gateway?sort=semver)
 ![Sonatype Nexus (Releases)](https://img.shields.io/nexus/r/io.github.zero88.qwe/qwe-iot-data?server=https%3A%2F%2Foss.sonatype.org%2F)
 ![Sonatype Nexus (Snapshots)](https://img.shields.io/nexus/s/io.github.zero88.qwe/qwe-iot-data?server=https%3A%2F%2Foss.sonatype.org%2F)
+![Docker Image Version (latest semver)](https://img.shields.io/docker/v/zero88/qwe-iot-service-bacnet-api?sort=semver)
+![Docker Image Size (latest semver)](https://img.shields.io/docker/image-size/zero88/qwe-iot-service-bacnet-api?sort=semver)
 
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=zero88_qwe-iot-gateway&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=zero88_qwe-iot-gateway)
 [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=zero88_qwe-iot-gateway&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=zero88_qwe-iot-gateway)
