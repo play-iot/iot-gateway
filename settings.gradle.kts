@@ -9,7 +9,14 @@
 
 rootProject.name = "qwe-iot"
 
-include(":data", ":connector")
+pluginManagement {
+    repositories {
+        mavenLocal()
+        gradlePluginPortal()
+        maven { url = uri("https://oss.sonatype.org/content/groups/public/") }
+    }
+}
 
+include(":data", ":connector")
 include(":connector:bacnet", ":connector:bacnet:mixin", ":connector:bacnet:simulator")
-include("service:bacnet-api", "service:bacnet-server")
+include(":service:bacnet-api", ":service:bacnet-server")

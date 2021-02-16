@@ -138,7 +138,7 @@ jobs:
 
       - name: Docker
         run: |
-          ./gradlew docker -x test \
+          ./gradlew pushDocker -x test \
                         -PdockerTags="${{ needs.context.outputs.dockerTags }}" \
                         -PdockerLabels="${{ needs.context.outputs.dockerLabels }}" \
                         -PdockerRegistries="ghcr.io/zero88,docker.io/zero88"
@@ -148,15 +148,6 @@ jobs:
           name: iot
           path: ${{ github.workspace }}/build/distributions/*.zip
           retention-days: 1
-
-      - name: Publish to Docker registry
-        id: find_docker
-        if: needs.context.outputs.shouldPublish == 'true'
-        run: |
-          for n in $(docker images | grep "qwe-iot-service" | awk '{ print $1":"$2 }')
-          do
-            docker image push "$n"
-          done
 
       - name: Publish to GitHub Package
         if: needs.context.outputs.isRelease == 'true' && env.ENABLE_GH_MAVEN == 'true'
