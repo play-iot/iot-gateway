@@ -48,6 +48,7 @@ object VertxLibs {
         const val vertx = "4.0.0"
     }
 
+    const val mqtt = "io.vertx:vertx-mqtt:${Version.vertx}"
     const val junit = "io.vertx:vertx-unit:${Version.vertx}"
     const val junit5 = "io.vertx:vertx-junit5:${Version.vertx}"
 
@@ -88,6 +89,7 @@ object ZeroLibs {
     const val qwe_micro_metadata = "io.github.zero88.qwe:qwe-micro-metadata:${Version.qwe}"
     const val qwe_micro_rpc = "io.github.zero88.qwe:qwe-micro-rpc:${Version.qwe}"
     const val qwe_micro = "io.github.zero88.qwe:qwe-micro:${Version.qwe}"
+    const val qwe_scheduler_core = "io.github.zero88.qwe:qwe-scheduler-core:${Version.qwe}"
     const val qwe_scheduler_metadata = "io.github.zero88.qwe:qwe-scheduler-metadata:${Version.qwe}"
     const val qwe_scheduler = "io.github.zero88.qwe:qwe-scheduler:${Version.qwe}"
     const val qwe_storage_json = "io.github.zero88.qwe:qwe-storage-json:${Version.qwe}"
