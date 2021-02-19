@@ -16,6 +16,7 @@ dependencies {
 
 docker {
     qweApplication {
+        enabled.set(true)
         dockerfile {
             ports.set(listOf(8888, 5000, 47808))
             configFile.set("bacnet.json")
