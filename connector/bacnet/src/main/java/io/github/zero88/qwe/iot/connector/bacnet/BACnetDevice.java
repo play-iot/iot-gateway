@@ -159,6 +159,9 @@ public interface BACnetDevice extends HasSharedData {
     /**
      * Send BACnet request
      *
+     * @param <A>         Type of acknowledgement service
+     * @param <C>         Type of confirmed request service
+     * @param <D>         Type of data
      * @param action      Event action
      * @param args        Discovery request arguments
      * @param requestData Request data
@@ -166,6 +169,8 @@ public interface BACnetDevice extends HasSharedData {
      * @return json result
      * @see DiscoveryArguments
      * @see ConfirmedRequestFactory
+     * @see ConfirmedRequestService
+     * @see AcknowledgementService
      */
     @NonNull <C extends ConfirmedRequestService, A extends AcknowledgementService, D> Single<EventMessage> send(
         @NonNull EventAction action, @NonNull DiscoveryArguments args, @NonNull RequestData requestData,

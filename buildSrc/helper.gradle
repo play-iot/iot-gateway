@@ -1,7 +1,0 @@
-static def prop(Project p, String key, String fallback = null) {
-    return p.hasProperty(key) ? p.property(key) as String : fallback
-}
-
-ext {
-    prop = this.&prop
-}

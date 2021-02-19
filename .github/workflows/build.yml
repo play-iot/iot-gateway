@@ -24,8 +24,8 @@ jobs:
       shouldBuild: ${{ steps.context.outputs.decision_build }}
       shouldPublish: ${{ steps.context.outputs.decision_publish }}
       isRelease: ${{ steps.context.outputs.isTag }}
-      afterRelease: ${{ steps.context.outputs.isAfterMergedReleasePR }}
       version: ${{ steps.context.outputs.version }}
+      commitId: ${{ steps.context.outputs.shortCommitId }}
       semanticVersion: ${{ steps.conclusion.outputs.semanticVersion }}
       dockerTags: ${{ steps.conclusion.outputs.dockerTags }}
       dockerLabels: ${{ steps.docker_context.outputs.labels }}
@@ -134,29 +134,23 @@ jobs:
           ./gradlew clean build -x test \
                           -Pversion=${{ needs.context.outputs.version }} \
                           -PsemanticVersion=${{needs.context.outputs.semanticVersion }} \
-                          -PbuildBy="GitHub Action" -PbuildHash=${{ github.sha }}
+                          -PbuildBy="GitHub Action" -PbuildHash=${{ needs.context.outputs.commitId }}
 
       - name: Docker
         run: |
-          ./gradlew docker -x test \
+          ./gradlew pushDocker -x test \
+                        -Pversion=${{ needs.context.outputs.version }} \
+                        -PsemanticVersion=${{needs.context.outputs.semanticVersion }} \
                         -PdockerTags="${{ needs.context.outputs.dockerTags }}" \
                         -PdockerLabels="${{ needs.context.outputs.dockerLabels }}" \
-                        -PdockerRegistries="ghcr.io/zero88,docker.io/zero88"
+                        -PdockerRegistries="ghcr.io/zero88,docker.io/zero88" \
+                        -PbuildBy="GitHub Action" -PbuildHash=${{ needs.context.outputs.commitId }}
 
       - uses: actions/upload-artifact@v2
         with:
           name: iot
           path: ${{ github.workspace }}/build/distributions/*.zip
           retention-days: 1
-
-      - name: Publish to Docker registry
-        id: find_docker
-        if: needs.context.outputs.shouldPublish == 'true'
-        run: |
-          for n in $(docker images | grep "qwe-iot-service" | awk '{ print $1":"$2 }')
-          do
-            docker image push "$n"
-          done
 
       - name: Publish to GitHub Package
         if: needs.context.outputs.isRelease == 'true' && env.ENABLE_GH_MAVEN == 'true'
@@ -217,7 +211,7 @@ jobs:
         run: ./gradlew jacocoRootReport -PjacocoHtml=false
 
       - name: SonarQube
-        if: always()
+        if: always() && needs.context.outputs.shouldPublish == 'true'
         run: ./gradlew sonarqube -x test -Dsonar.login=${{ secrets.OSS_SONARQUBE_TOKEN }} -Dsonar.branch.name=${{ needs.context.outputs.branch }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -12,13 +12,10 @@ object PluginLibs {
 
     object Version {
 
-        const val sonarQube = "3.0"
         const val nexusStaging = "0.22.0"
     }
 
-    const val sonarQube = "org.sonarqube"
     const val nexusStaging = "io.codearte.nexus-staging"
-    const val docker = "com.bmuschko.docker-remote-api"
 }
 
 object TestLibs {
@@ -93,4 +90,9 @@ object ZeroLibs {
     const val qwe_scheduler_metadata = "io.github.zero88.qwe:qwe-scheduler-metadata:${Version.qwe}"
     const val qwe_scheduler = "io.github.zero88.qwe:qwe-scheduler:${Version.qwe}"
     const val qwe_storage_json = "io.github.zero88.qwe:qwe-storage-json:${Version.qwe}"
+
+    object Plugins {
+        const val docker = "io.github.zero88.qwe.gradle.docker"
+        const val root = "io.github.zero88.qwe.gradle.root"
+    }
 }
