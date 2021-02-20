@@ -28,7 +28,7 @@ qwe {
     application.set(true)
     app {
         logging {
-            specified.set(mapOf("com.serotonin.bacnet4j" to "info"))
+            otherLoggers.set(mapOf("com.serotonin.bacnet4j" to "info"))
         }
         systemd {
             enabled.set(true)
