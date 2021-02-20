@@ -73,6 +73,7 @@ object ZeroLibs {
         const val rSql = "0.9.0"
         const val qwe = "0.6.1-SNAPSHOT"
         const val qweSql = "0.0.1-SNAPSHOT"
+        const val plugin = "1.0.0-SNAPSHOT"
     }
 
     const val utils = "io.github.zero88:java-utils:${Version.utils}"

@@ -1,6 +1,6 @@
 plugins {
-    id(ZeroLibs.Plugins.docker) version ZeroLibs.Version.qwe
-    id(ZeroLibs.Plugins.root) version ZeroLibs.Version.qwe apply false
+    id(ZeroLibs.Plugins.docker) version ZeroLibs.Version.plugin
+    id(ZeroLibs.Plugins.root) version ZeroLibs.Version.plugin apply false
     id(PluginLibs.nexusStaging) version PluginLibs.Version.nexusStaging
 }
 
