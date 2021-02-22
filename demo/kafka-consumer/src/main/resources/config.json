@@ -1,0 +1,40 @@
+{
+  "__system__": {
+    "__eventBus__": {
+      "clientAuth": "NONE",
+      "ssl": true,
+      "clustered": false
+    },
+    "__cluster__": {
+      "active": false
+    }
+  },
+  "__app__": {
+    "__http__": {
+      "host": "0.0.0.0",
+      "port": 8080,
+      "__rest__": {
+        "enabled": true,
+        "rootApi": "/api"
+      },
+      "__websocket__": {
+        "enabled": true,
+        "rootWs": "/wsk"
+      },
+      "__static__": {
+        "enabled": true,
+        "webRoot": "kafkaWebRoot"
+      }
+    },
+    "__kafka__": {
+      "__client__": {
+        "bootstrap.servers": [
+          "localhost:9092"
+        ]
+      },
+      "__security__": {
+        "security.protocol": "PLAINTEXT"
+      }
+    }
+  }
+}

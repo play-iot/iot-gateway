@@ -1,0 +1,11 @@
+{
+  "__app__": {
+    "__kafka__": {
+      "__producer__": {
+        "acks": "1",
+        "client.id": "producer",
+        "compression.type": "gzip"
+      }
+    }
+  }
+}
