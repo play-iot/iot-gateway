@@ -48,9 +48,26 @@ object VertxLibs {
         const val vertx = "4.0.0"
     }
 
+    const val kafka = "io.vertx:vertx-kafka-client:${Version.vertx}"
     const val junit = "io.vertx:vertx-unit:${Version.vertx}"
     const val junit5 = "io.vertx:vertx-junit5:${Version.vertx}"
 
+}
+
+object KafkaLibs {
+
+    object Version {
+
+        const val kafka = "2.1.0"
+        const val debeziumVersion = "0.8.3.Final"
+        const val scala = "2.12.7"
+    }
+
+    const val kafkaClient = "org.apache.kafka:kafka-clients:${Version.kafka}"
+    const val kafka = "org.apache.kafka:kafka_2.12:${Version.kafka}"
+    const val debezium = "io.debezium:debezium-core:${Version.debeziumVersion}"
+    const val scalaLibName = "org.scala-lang:scala-library"
+    const val scala = "${scalaLibName}:${Version.scala}"
 }
 
 object LogLibs {
@@ -63,6 +80,7 @@ object LogLibs {
 
     const val slf4j = "org.slf4j:slf4j-api:${Version.slf4j}"
     const val logback = "ch.qos.logback:logback-classic:${Version.logback}"
+    const val log4jOverSlf4j = "org.slf4j:log4j-over-slf4j:${Version.slf4j}"
 }
 
 object ZeroLibs {
@@ -93,6 +111,7 @@ object ZeroLibs {
     const val qwe_storage_json = "io.github.zero88.qwe:qwe-storage-json:${Version.qwe}"
 
     object Plugins {
+
         const val docker = "io.github.zero88.qwe.gradle.docker"
         const val root = "io.github.zero88.qwe.gradle.root"
     }

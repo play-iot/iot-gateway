@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>QWE Kafka | Web Socket Test</title>
+    <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.3.0/sockjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vertx/3.6.0/vertx-eventbus.min.js"></script>
+</head>
+<style>
+    .news {
+        font-size: 20pt;
+    }
+    #status {
+        font-size: 10pt;
+    }
+
+
+</style>
+
+<body>
+
+<div class="news">Latest data:</div>
+<br/>
+
+<div id="status" class="news"></div>
+
+<script type="text/javascript">
+        let eb = new EventBus(location.protocol + '//' + location.host + "/wsk");
+        eb.onopen = function () {
+            eb.registerHandler("edge.kafka.data", function (err, msg) {
+                var str = "<code>" + JSON.stringify(msg.body) + "</code><br>";
+                $('#status').prepend(str);
+            })
+        }
+
+
+</script>
+
+</body>
+
+</html>

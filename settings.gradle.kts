@@ -20,3 +20,8 @@ pluginManagement {
 include(":data", ":connector")
 include(":connector:bacnet", ":connector:bacnet:mixin", ":connector:bacnet:simulator")
 include(":service:bacnet-api", ":service:bacnet-server")
+
+
+include(":connector:kafka")
+include(":demo:kafka-consumer")
+include(":demo:kafka-publisher")
