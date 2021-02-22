@@ -6,6 +6,8 @@ plugins {
 
 apply(plugin = ZeroLibs.Plugins.root)
 
+project.ext.set("baseName", "qwe-iot")
+
 allprojects {
     group = "io.github.zero88.qwe"
 
