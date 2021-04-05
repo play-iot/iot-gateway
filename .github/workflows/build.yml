@@ -54,7 +54,7 @@ jobs:
 
       - name: Docker meta
         id: docker_context
-        uses: crazy-max/ghaction-docker-meta@v1
+        uses: crazy-max/ghaction-docker-meta@v2.2.0
         if: steps.context.outputs.decision_build == 'true'
         with:
           images: qwe-iot-gateway
